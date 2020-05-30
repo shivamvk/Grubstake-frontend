@@ -21,8 +21,9 @@ const Social = () => {
         <Col xs={0} md={2}></Col>
       </Row>
       <p className="text-muted">
-        By continuing you agree to{" "}
-        <span className="blue-text">terms of service</span> and
+        *By continuing you agree to our{" "}
+        <span className="blue-text">Terms of service </span>
+        and acknowledge that you read our
         <span className="blue-text"> privary policy</span>
       </p>
     </Container>

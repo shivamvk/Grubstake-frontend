@@ -1,5 +1,21 @@
-.container .nav {
-  justify-content: center;
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,500&display=swap");
+
+h1,
+h2,
+h3,
+h6,
+p,
+span {
+  font-family: "Barlow", sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.blue-text {
+  color: blue;
+  cursor: pointer;
 }
 
 .hr-text {

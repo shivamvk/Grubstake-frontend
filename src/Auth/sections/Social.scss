@@ -1,4 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,500&display=swap");
+
+h1,
+h2,
+h3,
+h6,
+p,
+span {
+  font-family: "Barlow", sans-serif;
+}
+
+.text-muted{
+  font-size: 12px;
+  text-align: center;
+}
+
 .blue-text {
-    color: blue;
-    cursor: pointer;
+  color: blue;
+  cursor: pointer;
+}
+
+form {
+  margin: 20px;
+  label {
+    position: relative;
+    display: block;
+
+    input {
+      font-family: "Barlow", sans-serif;
+      box-sizing: border-box;
+      display: block;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px lightgrey solid;
+      padding: 10px;
+      width: 100%;
+      font-size: 18px;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+
+      &::placeholder {
+        transition: all 0.2s ease-in-out;
+        color: skyblue;
+        font-family: "Barlow", sans-serif;
+      }
+
+      &:focus,
+      &.populated {
+        padding-top: 28px;
+        padding-bottom: 12px;
+
+        &::placeholder {
+          color: transparent;
+        }
+
+        & + span {
+          opacity: 1;
+          top: 10px;
+        }
+      }
+    }
+
+    span {
+      color: grey;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
 }
