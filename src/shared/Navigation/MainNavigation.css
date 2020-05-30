@@ -1,0 +1,53 @@
+.main-navigation__menu-btn {
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.main-navigation__menu-btn span {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: blue;
+}
+
+.main-navigation__menu-btn span:hover {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: darkblue;
+}
+
+.main-navigation__title a{
+  color: blue;
+  text-decoration: none;
+}
+
+.main-navigation__title a:hover {
+  color: darkblue;
+  text-decoration: none;
+}
+
+.main-navigation__header-nav {
+  display: none;
+}
+
+.main-navigation__drawer-nav {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .main-navigation__menu-btn {
+    display: none;
+  }
+
+  .main-navigation__header-nav {
+    display: block;
+  }
+}
