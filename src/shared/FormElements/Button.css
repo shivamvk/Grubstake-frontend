@@ -1,0 +1,15 @@
+.btn-main {
+  background-image: linear-gradient(to right, #ff8fbc, #8bc2f2);
+  border: none;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  width: 100%;
+  opacity: 1;
+  transition: 1s;
+}
+
+.btn-main:hover {
+    opacity: 0.8;
+    transition: 1s;
+}

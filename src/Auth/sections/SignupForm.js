@@ -6,20 +6,49 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_FIXLENGTH,
 } from "../../shared/util/validator";
-import Button from "react-bootstrap/Button";
+import Button from "../../shared/FormElements/Button";
+import { useForm } from "../../shared/hooks/form-hook";
 
 import './form.scss';
 
 const SignupForm = (props) => {
+  const [formState, inputHandler] = useForm({
+    name: {
+      value: "",
+      isValid: false,
+    },
+    email: {
+      value: "",
+      isValid: false,
+    },
+    mobile: {
+      value: "",
+      isValid: false,
+    },
+    password: {
+      value: "",
+      isValid: false,
+    }
+  },false);
+
+  const formSubmitHandler = event => {
+    event.preventDefault();
+    if(formState.isValid){
+      console.log(formState.inputs);
+    } else {
+      console.log("invalid inputs");
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <Input
         id="name"
         element="input"
         type="text"
         label="Name"
         placeholder="Enter your name"
-        onInput={() => {}}
+        onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Please enter a valid name."
       />
@@ -29,7 +58,7 @@ const SignupForm = (props) => {
         type="email"
         label="Email"
         placeholder="Enter your email address"
-        onInput={() => {}}
+        onInput={inputHandler}
         validators={[VALIDATOR_EMAIL()]}
         errorText="Please enter a valid email address."
       />
@@ -39,7 +68,7 @@ const SignupForm = (props) => {
         type="number"
         label="Mobile"
         placeholder="Enter your mobile number"
-        onInput={() => {}}
+        onInput={inputHandler}
         validators={[VALIDATOR_FIXLENGTH(10)]}
         errorText="Please enter a valid mobile number (10 digits only)."
       />
@@ -49,11 +78,12 @@ const SignupForm = (props) => {
         type="password"
         label="Password"
         placeholder="Enter your password"
-        onInput={() => {}}
+        onInput={inputHandler}
         validators={[VALIDATOR_MINLENGTH(6)]}
         errorText="Please enter a valid password (at least 6 characters)."
       />
-      <Button variant="primary" size="md">
+      <br/><br/>
+      <Button variant="main" type="submit">
         Signup
       </Button>
     </form>

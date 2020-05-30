@@ -15,7 +15,7 @@ const Signup = () => {
         <Link to="/login"><span className="blue-text">Login</span></Link>
       </h6>
       <SignupForm />
-      <hr class="hr-text" data-content="OR"></hr>
+      <hr className="hr-text" data-content="OR"></hr>
       <Social />
     </Container>
   );
