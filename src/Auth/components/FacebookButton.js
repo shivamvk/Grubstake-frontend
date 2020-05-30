@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import { AuthContext } from "../../shared/context/auth-context";
+import { Redirect } from "react-router-dom";
 
 import "./FacebookButton.scss";
 
 const FacebookButton = () => {
+  const auth = useContext(AuthContext);
+  const[redirect, setRedirect] = useState(null);
+
+  if(redirect){
+    return <Redirect to={redirect}/>
+  }
+
   const responseFacebook = (response) => {
-    console.log(response);
+    console.log(response); //Figure out later how to verify response
+    auth.login();
+    setRedirect("/intermediate/after-auth");
   };
 
   return (

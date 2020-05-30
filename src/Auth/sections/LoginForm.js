@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Input from "../../shared/FormElements/Input";
 import {
   VALIDATOR_EMAIL,
@@ -6,10 +6,15 @@ import {
 } from "../../shared/util/validator";
 import Button from "../../shared/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 
 import "./form.scss";
+import { Redirect } from "react-router-dom";
 
 const SignupForm = (props) => {
+  const auth = useContext(AuthContext);
+  const [redirect, setRedirect] = useState(null); 
+
   const [formState, inputHandler] = useForm(
     {
       email: {
@@ -24,10 +29,16 @@ const SignupForm = (props) => {
     false
   );
 
+  if(redirect){
+    return <Redirect to={redirect}/>
+  }
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (formState.isValid) {
       console.log(formState.inputs);
+      auth.login();
+      setRedirect("/intermediate/after-auth");
     } else {
       console.log("invalid inputs");
     }

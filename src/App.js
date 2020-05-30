@@ -5,6 +5,7 @@ import MainNavigation from "./shared/Navigation/MainNavigation";
 import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
 import { AuthContext } from "./shared/context/auth-context";
+import AfterAuth from "./intermediate/AfterAuth";
 
 function App() {
   const [isLoggenIn, setIsLoggedIn] = useState(false);
@@ -22,9 +23,9 @@ function App() {
       value={{ isLoggenIn: isLoggenIn, login: login, logout: logout }}
     >
       <Router>
-        <MainNavigation />
         <main>
           <Route path="/" exact>
+            <MainNavigation />
             <Home />
           </Route>
           <Route path="/signup" exact>
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/login" exact>
             <Login />
+          </Route>
+          <Route path="/intermediate/after-auth" exact>
+            <AfterAuth />
           </Route>
         </main>
       </Router>
