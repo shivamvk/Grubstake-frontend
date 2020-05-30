@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import GoogleLogin from "react-google-login";
 import Button from "react-bootstrap/Button";
 
 import "./GoogleButton.scss";
+import { Redirect } from "react-router-dom";
 
 const GoogleButton = () => {
-  const responseGoogle = (response) => {
+  const [redirect, setRedirect] = useState(null);
+  const responseGoogleSuccess = (response) => {
+    console.log(response);
+    setRedirect("/");
+  };
+
+  const responseGoogleFailure = (response) => {
     console.log(response);
   };
+
+  if(redirect){
+    return <Redirect to="/"></Redirect>
+  }
 
   return (
     <GoogleLogin
@@ -22,8 +33,8 @@ const GoogleButton = () => {
           Continue with google
         </Button>
       )}
-      onSuccess={responseGoogle}
-      onFailure={responseGoogle}
+      onSuccess={responseGoogleSuccess}
+      onFailure={responseGoogleFailure}
     />
   );
 };
