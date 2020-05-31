@@ -52,3 +52,7 @@
 .btn-main:focus {
   outline: none;
 }
+
+.btn-outline:focus{
+  outline: none;
+}
