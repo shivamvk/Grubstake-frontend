@@ -28,6 +28,26 @@ span {
   text-align: left;
 }
 
-.profile-section__card_list{
-    text-align: left;
+.profile-section__card_list {
+  text-align: left;
+}
+
+.profile-section__mobile_toggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.text-align-left {
+  text-align: left
+}
+
+.margin-1{
+  margin: 1rem;
+}
+
+.profile-section__mobile_image {
+  position: absolute;
+  top: 40%;
+  left: 40%;
 }

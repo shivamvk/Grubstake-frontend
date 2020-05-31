@@ -7,6 +7,7 @@ const DashboardSection = (props) => {
   return (
     <>
       <h2>Satyam's dashboard</h2>
+      <br></br>
       {props.events.length === 0 ? (
         <EmptyList
           title="Events"

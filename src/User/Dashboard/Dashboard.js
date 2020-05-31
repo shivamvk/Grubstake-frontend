@@ -15,6 +15,7 @@ const Dashboard = () => {
       <Row>
         <Col md={12} lg={4}>
           <ProfileSection />
+          <br></br><br></br>
         </Col>
         <Col md={12} lg={8}>
           <DashboardSection
