@@ -74,7 +74,7 @@ const Input = (props) => {
         <span>{props.label}</span>
       </label>
       {!inputState.isValid && inputState.isTouched ? (
-        <p>{props.errorText}</p>
+        <p className="error-text text-align-left">{props.errorText}</p>
       ) : null}
     </>
   );

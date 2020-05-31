@@ -2,9 +2,12 @@ p {
   font-family: "Barlow", sans-serif;
 }
 
-p {
-  text-align: left;
+.error-text {
   color: red;
+}
+
+.text-align-left {
+  text-align: left;
 }
 
 label {

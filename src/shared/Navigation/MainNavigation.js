@@ -33,12 +33,18 @@ const MainNavigation = (props) => {
           <span />
           <span />
         </button>
-        <h2 className="main-navigation__title">
+        <div
+          className={`main-navigation__title ${
+            window.innerWidth < 768 ? "main-navigation__title_center" : null
+          }`}
+        >
           <Link to="/">
             <img src="/g_logo.jpg" className="main-navigation__logo" alt="g" />
-            <span className="main-navigation__title-text">Grubstake</span>
+            {window.innerWidth < 768 ? null : (
+              <span className="main-navigation__title-text">Grubstake</span>
+            )}
           </Link>
-        </h2>
+        </div>
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>

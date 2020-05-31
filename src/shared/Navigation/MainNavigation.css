@@ -34,6 +34,11 @@
   text-decoration: none;
 }
 
+.main-navigation__title_center{
+  position: absolute;
+  left: 45%;
+}
+
 .main-navigation__title a:hover {
   color: #8bc2f2;
   text-decoration: none;
