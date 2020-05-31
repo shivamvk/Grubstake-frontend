@@ -6,6 +6,10 @@ import ProfileSection from "./sections/ProfileSection";
 import DashboardSection from "./sections/DashboardSection";
 
 const Dashboard = () => {
+  const DUMMY_EVENTS = [];
+  const DUMMY_BRANDS = [];
+  const DUMMT_VENDORS = [];
+
   return (
     <Container>
       <Row>
@@ -13,7 +17,11 @@ const Dashboard = () => {
           <ProfileSection />
         </Col>
         <Col md={12} lg={8}>
-          <DashboardSection />
+          <DashboardSection
+            events={DUMMY_EVENTS}
+            brands={DUMMY_BRANDS}
+            vendors={DUMMT_VENDORS}
+          />
         </Col>
       </Row>
     </Container>
