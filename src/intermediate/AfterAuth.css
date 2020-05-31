@@ -1,0 +1,12 @@
+.after-auth__conatiner {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

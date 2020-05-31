@@ -3,15 +3,16 @@ import React from "react";
 import "./Button.css";
 
 const Button = (props) => {
-    let element;
-  switch (props.variant) {
-    case "main":
-      element = <button type={props.type} disabled={props.disabled} className="btn-main">{props.children}</button>;
-      break;
-    default:
-      element = <button type={props.type} disabled={props.disabled} className="btn-main">{props.children}</button>;
-  }
-  return element
+  return (
+    <button
+      type={props.type}
+      disabled={props.disabled}
+      className={`btn-${props.variant} btn-${props.width}`}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;

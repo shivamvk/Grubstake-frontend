@@ -68,7 +68,7 @@ const SignupForm = (props) => {
       />
       <br />
       <br />
-      <Button variant="main" type="submit">
+      <Button variant="main" width="max" type="submit">
         Login
       </Button>
     </form>

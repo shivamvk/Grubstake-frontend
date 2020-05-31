@@ -94,7 +94,7 @@ const SignupForm = (props) => {
         errorText="Please enter a valid password (at least 6 characters)."
       />
       <br/><br/>
-      <Button variant="main" type="submit">
+      <Button variant="main" width="max" type="submit">
         Signup
       </Button>
     </form>

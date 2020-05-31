@@ -32,7 +32,7 @@ const Login = () => {
           </Link>
         </h6>
         <LoginForm />
-        <hr class="hr-text" data-content="OR"></hr>
+        <hr className="hr-text" data-content="OR"></hr>
         <Social />
       </Container>
     );
