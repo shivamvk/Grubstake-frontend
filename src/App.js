@@ -8,6 +8,7 @@ import { AuthContext } from "./shared/context/auth-context";
 import AfterAuth from "./intermediate/AfterAuth";
 import Dashboard from "./User/Dashboard/Dashboard";
 import Profile from "./User/Profile/Profile";
+import Logout from "./Auth/Logout";
 
 function App() {
   const [isLoggenIn, setIsLoggedIn] = useState(false);
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/login" exact>
             <Login />
+          </Route>
+          <Route path="/logout" exact>
+            <Logout />
           </Route>
           <Route path="/intermediate/after-auth" exact>
             <AfterAuth />

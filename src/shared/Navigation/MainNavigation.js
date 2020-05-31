@@ -34,7 +34,10 @@ const MainNavigation = (props) => {
           <span />
         </button>
         <h2 className="main-navigation__title">
-          <Link to="/"><img src="/g_logo.jpg" className="main-navigation__logo" alt="g"/>Grubstake</Link>
+          <Link to="/">
+            <img src="/g_logo.jpg" className="main-navigation__logo" alt="g" />
+            <span className="main-navigation__title-text">Grubstake</span>
+          </Link>
         </h2>
         <nav className="main-navigation__header-nav">
           <NavLinks />

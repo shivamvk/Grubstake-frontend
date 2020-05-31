@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,500&display=swap");
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+span {
+  font-family: "Barlow", sans-serif;
+}
+
+.profile-section__card {
+  width: 100%;
+  box-shadow: 0 14px 28px #8bc2f21f, 0 10px 10px #8bc2f23d;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.profile-section__card img {
+  width: 10rem;
+  align-self: center;
+}
+
+.profile-section__card_contacts {
+  color: grey;
+  text-align: left;
+}
+
+.profile-section__card_list{
+    text-align: left;
+}
