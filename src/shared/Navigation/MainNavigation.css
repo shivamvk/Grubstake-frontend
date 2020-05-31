@@ -14,23 +14,28 @@
   display: block;
   width: 2rem;
   height: 2px;
-  background: blue;
+  background: black;
 }
 
 .main-navigation__menu-btn span:hover {
   display: block;
   width: 2rem;
   height: 2px;
-  background: darkblue;
+  background: #ff8fbc;
 }
 
-.main-navigation__title a{
-  color: blue;
+.main-navigation__logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.main-navigation__title a {
+  color: #ff8fbc;
   text-decoration: none;
 }
 
 .main-navigation__title a:hover {
-  color: darkblue;
+  color: #8bc2f2;
   text-decoration: none;
 }
 
