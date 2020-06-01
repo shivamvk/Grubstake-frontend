@@ -9,7 +9,7 @@ const ShortList = (props) => {
     <>
       <Row>
         <Col xs={5} md={8} className="d-flex justify-content-start">
-          <h5 className="center-vertical">{props.title}</h5>
+          <h5 className="center-vertical color-dark-grey">{props.title}</h5>
         </Col>
         <Col xs={7} md={4} className="d-flex justify-content-end">
           <Button

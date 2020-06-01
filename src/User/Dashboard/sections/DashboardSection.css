@@ -2,6 +2,8 @@
   width: 100%;
   box-shadow: 0 2px 4px #8bc2f21f, 0 5px 5px #8bc2f23d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-image: linear-gradient(to right, #ff8fbc, #8bc2f2);
+  border: none !important;
   padding: 5rem;
 }
 
@@ -18,14 +20,22 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-h5 {
-  color: grey;
-  text-align: left;
+.h5 {
+  color: white;
+  font-weight: bolder !important;
 }
 
 p {
-  color: grey;
+  color: white;
   text-align: center;
+}
+
+.color-grey{
+    color: grey;
+}
+
+.color-dark-grey {
+    color: #606060;
 }
 
 button {
@@ -46,12 +56,12 @@ button {
 }
 
 .right-in-card {
-    position: absolute;
-    right: 1rem;
-    top: 40%;
+  position: absolute;
+  right: 1rem;
+  top: 40%;
 }
 
-.center-vertical{
-    position: absolute;
-    top: 20%;
+.center-vertical {
+  position: absolute;
+  top: 20%;
 }

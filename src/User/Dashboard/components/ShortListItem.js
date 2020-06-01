@@ -13,8 +13,8 @@ const ShortListItem = (props) => {
             <img src={props.image} alt={props.title} width="100" />
           </Col>
           <Col xs={8} md={9}>
-            <Card.Title className="text-align-left">{props.title}</Card.Title>
-            <Card.Text className="text-align-left">
+            <Card.Title className="text-align-left color-dark-grey">{props.title}</Card.Title>
+            <Card.Text className="text-align-left color-grey">
               {props.description}
             </Card.Text>
           </Col>

@@ -13,12 +13,12 @@ const EmptyList = (props) => {
   }
   return (
     <>
-      <h5>{props.title}</h5>
       <Card className="dashboard-section__card">
+        <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.text}</Card.Text>
         <Button
           onClick={props.onClick}
-          variant="main"
+          variant="inverse"
           width={isDesktopScreen ? "med" : "max"}
         >
           {props.btnText}

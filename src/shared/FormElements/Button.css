@@ -41,6 +41,23 @@
   transition: 1s;
 }
 
+.btn-inverse {
+  background-color: white;
+  border: none;
+  color: #ff8fbc;
+  font-family: "Barlow", sans-serif;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  opacity: 1;
+  transition: 1s;
+}
+
+.btn-inverse:hover {
+  background-color: wheat;
+  color: #8bc2f2;
+  transition: 1s;
+}
+
 .btn-max {
   width: 100%;
 }
@@ -61,6 +78,10 @@
   outline: none;
 }
 
-.btn-outline:focus{
+.btn-outline:focus {
+  outline: none;
+}
+
+.btn-inverse:focus {
   outline: none;
 }

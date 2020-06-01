@@ -7,7 +7,7 @@ import "./DashboardSection.css";
 const DashboardSection = (props) => {
   return (
     <>
-      <h2>Dashboard</h2>
+      <h2 className="color-grey">Dashboard</h2>
       <br></br>
       {props.events.length === 0 ? (
         <EmptyList

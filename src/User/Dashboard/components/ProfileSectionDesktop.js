@@ -16,13 +16,13 @@ const ProfileSectionDesktop = () => {
           <MdPhone /> 8130583124
         </Card.Text>
         <ListGroup className="profile-section__card_list" variant="flush">
-          <ListGroup.Item>Created events: 0</ListGroup.Item>
-          <ListGroup.Item>Created brands: 0</ListGroup.Item>
-          <ListGroup.Item>Created vendors: 0</ListGroup.Item>
+          <ListGroup.Item>Events created: 0</ListGroup.Item>
+          <ListGroup.Item>Brands created: 0</ListGroup.Item>
+          <ListGroup.Item>Vendors created: 0</ListGroup.Item>
         </ListGroup>
         <br></br>
         <br></br>
-        <Button variant="outline" width="max">
+        <Button variant="main" width="max">
           Edit profile
         </Button>
       </Card.Body>

@@ -24,7 +24,9 @@ const ProfileSectionMobile = () => {
 
   return (
     <Card className="profile-section__card">
-      <Card.Title className="text-align-left margin-1">Profile stats</Card.Title>
+      <Card.Title className="color-grey font-weight-normal text-align-left margin-1">
+        Profile stats
+      </Card.Title>
       {isDeatailOpen ? (
         <UpIcon
           className="profile-section__mobile_toggle"
@@ -63,20 +65,18 @@ const ProfileSectionMobile = () => {
             </Col>
           </Row>
           <br></br>
-          <ListGroup
-            horizontal
-            className="profile-section__card_list margin-1"
-          >
-            <ListGroup.Item>Created events: 0</ListGroup.Item>
-            <ListGroup.Item>Created brands: 0</ListGroup.Item>
-            <ListGroup.Item>Created vendors: 0</ListGroup.Item>
+          <ListGroup horizontal className="profile-section__card_list margin-1">
+            <ListGroup.Item>Events created: 0</ListGroup.Item>
+            <ListGroup.Item>Brands created: 0</ListGroup.Item>
+            <ListGroup.Item>Vendors created: 0</ListGroup.Item>
           </ListGroup>
           <br></br>
           <br></br>
-          <Button variant="outline" width="med">
+          <Button variant="main" width="med">
             Edit profile
           </Button>
-          <br></br><br></br>
+          <br></br>
+          <br></br>
         </div>
       </Collapse>
     </Card>
