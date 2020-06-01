@@ -14,8 +14,8 @@ const EmptyList = (props) => {
   return (
     <>
       <Card className="dashboard-section__card">
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text>{props.text}</Card.Text>
+        <Card.Title className="color-white">{props.title}</Card.Title>
+        <Card.Text className="color-white">{props.text}</Card.Text>
         <Button
           onClick={props.onClick}
           variant="inverse"

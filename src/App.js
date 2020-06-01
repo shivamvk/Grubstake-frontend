@@ -9,6 +9,7 @@ import AfterAuth from "./intermediate/AfterAuth";
 import Dashboard from "./User/Dashboard/Dashboard";
 import Profile from "./User/Profile/Profile";
 import Logout from "./Auth/Logout";
+import Event from "./User/Event/Event";
 
 function App() {
   const [isLoggenIn, setIsLoggedIn] = useState(false);
@@ -46,6 +47,10 @@ function App() {
           <Route path="/user/dashboard" exact>
             <MainNavigation />
             <Dashboard />
+          </Route>
+          <Route path="/user/dashboard/event/:eventId" exact>
+            <MainNavigation/>
+            <Event />
           </Route>
           <Route path="/user/profile" exact>
             <MainNavigation />

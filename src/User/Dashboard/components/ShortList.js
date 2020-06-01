@@ -26,6 +26,7 @@ const ShortList = (props) => {
       {props.events.map((event) => (
         <ShortListItem
           key={event.id}
+          id={event.id}
           image={event.image}
           title={event.title}
           description={event.description}

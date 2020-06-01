@@ -26,11 +26,19 @@ const Dashboard = () => {
     <Container>
       <Row>
         <Col md={12} lg={4}>
+          <h2
+            className={`color-grey font-weight-bolder ${
+              window.innerWidth < 992 ? "text-align-center" : "text-align-left"
+            }`}
+          >
+            Dashboard
+          </h2>
+          <br></br>
           <ProfileSection />
-          <br></br>
-          <br></br>
         </Col>
         <Col md={12} lg={8}>
+          <br></br>
+          <br></br>
           <DashboardSection
             events={DUMMY_EVENTS}
             addEvent={addEventHandler}

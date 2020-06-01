@@ -21,21 +21,11 @@
 }
 
 .h5 {
-  color: white;
   font-weight: bolder !important;
 }
 
 p {
-  color: white;
   text-align: center;
-}
-
-.color-grey{
-    color: grey;
-}
-
-.color-dark-grey {
-    color: #606060;
 }
 
 button {
@@ -53,15 +43,4 @@ button {
 
 .dashboard-section__breadcrumb ol li.active {
   color: white;
-}
-
-.right-in-card {
-  position: absolute;
-  right: 1rem;
-  top: 40%;
-}
-
-.center-vertical {
-  position: absolute;
-  top: 20%;
 }

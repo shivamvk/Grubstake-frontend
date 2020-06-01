@@ -14,7 +14,7 @@ span {
 
 .profile-section__card {
   width: 100%;
-  box-shadow: 0 14px 28px #8bc2f21f, 0 10px 10px #8bc2f23d;
+  box-shadow: 0 2px 4px #8bc2f21f, 0 5px 5px #8bc2f23d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -35,15 +35,7 @@ span {
 .profile-section__mobile_toggle {
   position: absolute;
   right: 1rem;
-  top: 1rem;
-}
-
-.text-align-left {
-  text-align: left
-}
-
-.margin-1{
-  margin: 1rem;
+  top: 2rem;
 }
 
 .profile-section__mobile_image {

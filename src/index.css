@@ -1,13 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,500&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.right-center-vetical {
+  position: absolute;
+  right: 1rem;
+  top: 40%;
+}
+
+.center-vertical {
+  position: absolute;
+  top: 20%;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.margin-1 {
+  margin: 1rem;
+}
+
+.margin-top-1{
+  margin-top: 1rem;
+}
+
+.color-grey {
+  color: grey;
+}
+
+.color-dark-grey {
+  color: #606060;
+}
+
+.color-white {
+  color: white;
+}
+
+.font-size-sm {
+  font-size: small;
+}
+
+.font-size-md {
+  font-size: medium;
+}
+
+.remove-link-decoration {
+  text-decoration: none;
+}
+
+.remove-link-decoration:hover {
+  text-decoration: none;
 }
