@@ -34,7 +34,7 @@ const Dashboard = () => {
             Dashboard
           </h2>
           <br></br>
-          <ProfileSection />
+          <ProfileSection events={DUMMY_EVENTS}/>
         </Col>
         <Col md={12} lg={8}>
           <br></br>

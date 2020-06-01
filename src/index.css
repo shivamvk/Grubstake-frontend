@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.pos-top-1 {
+  top: 1rem;
+}
+
+.pos-top-2 {
+  top: 2rem;
+}
 .right-center-vetical {
   position: absolute;
   right: 1rem;
@@ -39,7 +46,7 @@ code {
   margin: 1rem;
 }
 
-.margin-top-1{
+.margin-top-1 {
   margin-top: 1rem;
 }
 
@@ -56,11 +63,11 @@ code {
 }
 
 .font-size-sm {
-  font-size: small;
+  font-size: small !important;
 }
 
 .font-size-md {
-  font-size: medium;
+  font-size: medium !important;
 }
 
 .remove-link-decoration {
@@ -68,5 +75,10 @@ code {
 }
 
 .remove-link-decoration:hover {
+  color: #606060;
   text-decoration: none;
+}
+
+.border-bottom {
+  border-bottom: 1px solid grey !important;
 }

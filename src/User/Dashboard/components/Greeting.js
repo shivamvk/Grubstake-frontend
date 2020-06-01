@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Avatar from "../../../shared/UIElements/Avatar";
 
-const ProfileSectionGreeting = (props) => {
+const Greeting = (props) => {
   return (
     <Row>
       <Col xs={2} md={3}>
@@ -22,4 +22,4 @@ const ProfileSectionGreeting = (props) => {
   );
 };
 
-export default ProfileSectionGreeting;
+export default Greeting;

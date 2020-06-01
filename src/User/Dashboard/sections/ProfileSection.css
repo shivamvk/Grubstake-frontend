@@ -35,11 +35,14 @@ span {
 .profile-section__mobile_toggle {
   position: absolute;
   right: 1rem;
-  top: 2rem;
 }
 
 .profile-section__mobile_image {
   position: absolute;
   top: 40%;
   left: 40%;
+}
+
+.list-group-item {
+  border: none !important;
 }

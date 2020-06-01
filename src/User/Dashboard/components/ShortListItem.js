@@ -21,7 +21,7 @@ const ShortListItem = (props) => {
               {props.description}
             </Card.Text>
           </Col>
-          <AiOutlineRight className="right-center-vetical" />
+          <AiOutlineRight className="right-center-vetical color-grey" />
         </Row>
       </Card>
       <br></br>
