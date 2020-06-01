@@ -50,3 +50,8 @@ button {
     right: 1rem;
     top: 40%;
 }
+
+.center-vertical{
+    position: absolute;
+    top: 20%;
+}

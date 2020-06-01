@@ -26,7 +26,6 @@ const Dashboard = () => {
     <Container>
       <Row>
         <Col md={12} lg={4}>
-          <br></br><br></br>
           <ProfileSection />
           <br></br>
           <br></br>
