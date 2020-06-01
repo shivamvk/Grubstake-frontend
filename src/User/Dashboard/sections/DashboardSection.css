@@ -1,20 +1,52 @@
 .dashboard-section__card {
   width: 100%;
-  box-shadow: 0 14px 28px #8bc2f21f, 0 10px 10px #8bc2f23d;
+  box-shadow: 0 2px 4px #8bc2f21f, 0 5px 5px #8bc2f23d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 5rem;
 }
 
-h5{
-    color: grey;
-    text-align: left;
+.dashboard-section__list-card {
+  width: 100%;
+  box-shadow: 0 2px 4px #8bc2f21f, 0 5px 5px #8bc2f23d;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1rem;
+  cursor: pointer;
 }
 
-p{
-    color: grey;
-    text-align: center;
+.dashboard-section__list-card:hover {
+  box-shadow: 0 12px 24px #8bc2f21f, 0 10px 10px #8bc2f23d;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-button{
-    align-self: center;
+h5 {
+  color: grey;
+  text-align: left;
+}
+
+p {
+  color: grey;
+  text-align: center;
+}
+
+button {
+  align-self: center;
+}
+
+.dashboard-section__breadcrumb ol {
+  background-color: #8bc2f2;
+  border-radius: 5px;
+}
+
+.dashboard-section__breadcrumb ol li a {
+  color: grey;
+}
+
+.dashboard-section__breadcrumb ol li.active {
+  color: white;
+}
+
+.right-in-card {
+    position: absolute;
+    right: 1rem;
+    top: 40%;
 }

@@ -4,7 +4,7 @@ import Button from "../../../shared/FormElements/Button";
 
 import "../sections/DashboardSection.css";
 
-const EmptyList = props => {
+const EmptyList = (props) => {
   let isDesktopScreen;
   if (window.innerWidth < 768) {
     isDesktopScreen = false;
@@ -15,8 +15,12 @@ const EmptyList = props => {
     <>
       <h5>{props.title}</h5>
       <Card className="dashboard-section__card">
-  <Card.Text>{props.text}</Card.Text>
-        <Button variant="main" width={isDesktopScreen ? "med" : "max"}>
+        <Card.Text>{props.text}</Card.Text>
+        <Button
+          onClick={props.onClick}
+          variant="main"
+          width={isDesktopScreen ? "med" : "max"}
+        >
           {props.btnText}
         </Button>
       </Card>

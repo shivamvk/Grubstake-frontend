@@ -49,6 +49,14 @@
   width: 60%;
 }
 
+.btn-min {
+  width: 40%;
+}
+
+.btn-p-min {
+  padding: 0.5rem 0.5rem;
+}
+
 .btn-main:focus {
   outline: none;
 }

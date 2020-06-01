@@ -7,7 +7,7 @@ const Button = (props) => {
     <button
       type={props.type}
       disabled={props.disabled}
-      className={`btn-${props.variant} btn-${props.width}`}
+      className={`btn-${props.variant} btn-${props.width} btn-${props.padding}`}
       onClick={props.onClick}
     >
       {props.children}
