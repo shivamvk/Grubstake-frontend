@@ -1,7 +1,8 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
-import { FiChevronLeft as LeftIcon } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import CreateEventHeader from "../components/CreateEventHeader";
 
 import "../CreateEvent.css";
 
@@ -23,8 +24,7 @@ const CreateEventPageOne = () => {
 
   return (
     <>
-      <LeftIcon className="font-size-lg back-icon-pos" />
-      <img src="/g_logo.jpg" className="main-navigation__logo logo-center-pos" alt="g" />{" "}
+      <CreateEventHeader />
       <Container>
         <h1 className="margin-2 color-dark-grey font-weight-lighter font-size-xl">
           What kind of event do you want to create?
@@ -32,13 +32,15 @@ const CreateEventPageOne = () => {
         <br></br>
         {EVENT_TYPES.map((type) => {
           return (
-            <Badge className="create-event__pill" pill variant="light">
-              {window.innerWidth < 768 ? (
-                <h5 className="color-grey font-weight-light">{type}</h5>
-              ) : (
-                <h4 className="color-grey font-weight-light">{type}</h4>
-              )}
-            </Badge>
+            <Link to={`/create/event/2?type=${type}`}>
+              <Badge className="create-event__pill" pill variant="light">
+                {window.innerWidth < 768 ? (
+                  <h5 className="color-grey font-weight-light">{type}</h5>
+                ) : (
+                  <h4 className="color-grey font-weight-light">{type}</h4>
+                )}
+              </Badge>
+            </Link>
           );
         })}
       </Container>

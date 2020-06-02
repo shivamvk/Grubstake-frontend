@@ -3,6 +3,7 @@ import Button from "../../../shared/FormElements/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ShortListItem from "./ShortListItem";
+import { Link } from "react-router-dom";
 
 const ShortList = (props) => {
   return (
@@ -12,14 +13,11 @@ const ShortList = (props) => {
           <h5 className="center-vertical color-dark-grey">{props.title}</h5>
         </Col>
         <Col xs={7} md={4} className="d-flex justify-content-end">
-          <Button
-            onClick={props.addEvent}
-            variant="main"
-            width="max"
-            padding="p-min"
-          >
-            CREATE EVENT
-          </Button>
+          <Link to="/create/event/1">
+            <Button variant="main" width="max" padding="p-min">
+              CREATE EVENT
+            </Button>
+          </Link>
         </Col>
       </Row>
       <br></br>

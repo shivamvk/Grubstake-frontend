@@ -31,6 +31,10 @@ code {
   left: 1rem;
 }
 
+.back-icon-pos:hover {
+  cursor: pointer;
+}
+
 .logo-center-pos {
   position: absolute;
   top: 1rem;
@@ -62,9 +66,14 @@ code {
   margin-top: 1rem;
 }
 
+.margin-left-1{
+  margin-left: 1rem;
+}
+
 .margin-2 {
   margin: 2rem;
 }
+
 
 .color-grey {
   color: grey;
