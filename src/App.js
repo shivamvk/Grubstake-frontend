@@ -10,6 +10,7 @@ import Dashboard from "./User/Dashboard/Dashboard";
 import Profile from "./User/Profile/Profile";
 import Logout from "./Auth/Logout";
 import Event from "./User/Event/Event";
+import CreateEvent from "./User/Event/CreateEvent";
 
 function App() {
   const [isLoggenIn, setIsLoggedIn] = useState(false);
@@ -49,12 +50,15 @@ function App() {
             <Dashboard />
           </Route>
           <Route path="/user/dashboard/event/:eventId" exact>
-            <MainNavigation/>
+            <MainNavigation />
             <Event />
           </Route>
           <Route path="/user/profile" exact>
             <MainNavigation />
             <Profile />
+          </Route>
+          <Route path="/create/event/:page" exact>
+            <CreateEvent />
           </Route>
         </main>
       </Router>

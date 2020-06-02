@@ -1,0 +1,10 @@
+.create-event__pill {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+    margin: 1rem;
+}
+
+.create-event__pill:hover {
+    cursor: pointer;
+    background-color: #d8d9da;
+}

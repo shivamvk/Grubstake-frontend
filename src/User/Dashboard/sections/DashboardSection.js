@@ -13,12 +13,12 @@ const DashboardSection = (props) => {
           title="Events"
           text="Want sponsors for your event?"
           btnText="CREATE EVENT"
-          onClick={props.addEvent}
+          addEvent={props.addEvent}
         />
       ) : (
         <ShortList
           title="Events"
-          onClick={props.addEvent}
+          addEvent={props.addEvent}
           events={props.events}
         />
       )}

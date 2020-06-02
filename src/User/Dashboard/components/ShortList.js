@@ -13,7 +13,7 @@ const ShortList = (props) => {
         </Col>
         <Col xs={7} md={4} className="d-flex justify-content-end">
           <Button
-            onClick={props.onClick}
+            onClick={props.addEvent}
             variant="main"
             width="max"
             padding="p-min"
