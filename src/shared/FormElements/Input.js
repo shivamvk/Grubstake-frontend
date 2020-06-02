@@ -9,7 +9,7 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         value: action.value,
-        isValid: validate(action.value, action.validators),
+        isValid: action.validators? validate(action.value, action.validators) : true,
       };
     case "BLUR":
       return {
