@@ -25,6 +25,12 @@ code {
   top: 40%;
 }
 
+.top-center {
+  position: absolute;
+  top: 1rem;
+  left: 45%;
+}
+
 .back-icon-pos {
   position: absolute;
   top: 1rem;
@@ -66,14 +72,13 @@ code {
   margin-top: 1rem;
 }
 
-.margin-left-1{
+.margin-left-1 {
   margin-left: 1rem;
 }
 
 .margin-2 {
   margin: 2rem;
 }
-
 
 .color-grey {
   color: grey;
@@ -96,7 +101,7 @@ code {
 }
 
 .font-size-lg {
-  font-size: 2.5rem !important; 
+  font-size: 2.5rem !important;
 }
 
 .font-size-xl {
