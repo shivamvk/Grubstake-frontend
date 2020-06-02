@@ -35,9 +35,9 @@ const CreateEventPageOne = () => {
             <Link to={`/create/event/2?type=${type}`}>
               <Badge className="create-event__pill" pill variant="light">
                 {window.innerWidth < 768 ? (
-                  <h5 className="color-grey font-weight-light">{type}</h5>
+                  <h6 className="color-grey font-weight-light">{type}</h6>
                 ) : (
-                  <h4 className="color-grey font-weight-light">{type}</h4>
+                  <h5 className="color-grey font-weight-light">{type}</h5>
                 )}
               </Badge>
             </Link>
