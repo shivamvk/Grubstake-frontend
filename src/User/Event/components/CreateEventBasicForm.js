@@ -94,7 +94,7 @@ const CreateEventBasicForm = (props) => {
           },
         },
       };
-      console.log(inputs);
+      console.log(inputs); //send this to backend later
       history.push("/create/event/3?event-id=" + inputs.id);
     }
   };

@@ -9,22 +9,22 @@ import Button from "../../../shared/FormElements/Button";
 import { useHistory } from "react-router-dom";
 
 const CreateEventSponsorRequestForm = (props) => {
-    let history = useHistory();
+  let history = useHistory();
   const [sponsorsAmountRange, setSponsorsAmountRange] = useState({
     min: 0,
-    max: 100,
+    max: 80000,
   });
   const [goodiesRange, setGoodiesRange] = useState({
     min: 0,
-    max: 100,
+    max: 1000,
   });
   const [couponsRange, setCouponsRange] = useState({
     min: 0,
-    max: 100,
+    max: 1000,
   });
   const [vouchersRange, setVouchersRange] = useState({
     min: 0,
-    max: 100,
+    max: 1000,
   });
   const [andor, setAndOr] = useState("AND");
   const andOrCheckHandler = (checked) => {
@@ -42,7 +42,6 @@ const CreateEventSponsorRequestForm = (props) => {
       sponsorRequestDetails: {
         inCash: {
           sponsorsAmountRange: sponsorsAmountRange,
-          sponsorsAmountUnit: "K",
         },
         andOr: andor,
         inKind: {
@@ -52,8 +51,17 @@ const CreateEventSponsorRequestForm = (props) => {
         },
       },
     };
-    console.log(inputs);
+    console.log(inputs); //send this to backend later
     history.push("/create/event/4?event-id=" + props.eventId);
+  };
+
+  const convertNumberToIndianFormatString = (num) => {
+    let x = num;
+    x = x.toString();
+    var lastThree = x.substring(x.length - 3);
+    var otherNumbers = x.substring(0, x.length - 3);
+    if (otherNumbers != "") lastThree = "," + lastThree;
+    return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
   };
 
   return (
@@ -65,16 +73,17 @@ const CreateEventSponsorRequestForm = (props) => {
           <span className="color-grey">Amount range:</span>
           <span className="color-dark-grey">
             <RupeeIcon className="color-dark-grey" />
-            {sponsorsAmountRange.min}K To {sponsorsAmountRange.max}K
+            {convertNumberToIndianFormatString(sponsorsAmountRange.min)} To{" "}
+            {convertNumberToIndianFormatString(sponsorsAmountRange.max)}
           </span>
         </p>
       </Col>
       <Col>
         <InputRange
           minValue={0}
-          maxValue={1000}
-          formatLabel={(value) => `${value}K`}
+          maxValue={1000000}
           allowSameValues={false}
+          step={1000}
           value={sponsorsAmountRange}
           onChange={(value) => setSponsorsAmountRange(value)}
         />
@@ -104,8 +113,9 @@ const CreateEventSponsorRequestForm = (props) => {
       <Col>
         <InputRange
           minValue={0}
-          maxValue={1000}
+          maxValue={10000}
           allowSameValues={false}
+          step={10}
           value={goodiesRange}
           onChange={(value) => setGoodiesRange(value)}
         />
@@ -122,7 +132,8 @@ const CreateEventSponsorRequestForm = (props) => {
       <Col>
         <InputRange
           minValue={0}
-          maxValue={1000}
+          maxValue={10000}
+          step={10}
           allowSameValues={false}
           value={couponsRange}
           onChange={(value) => setCouponsRange(value)}
@@ -140,7 +151,8 @@ const CreateEventSponsorRequestForm = (props) => {
       <Col>
         <InputRange
           minValue={0}
-          maxValue={1000}
+          maxValue={10000}
+          step={10}
           allowSameValues={false}
           value={vouchersRange}
           onChange={(value) => setVouchersRange(value)}
