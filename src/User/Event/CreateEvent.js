@@ -24,7 +24,7 @@ const CreateEvent = (props) => {
     case "4":
       return <CreateEventPageFour eventId={getUrlParameter("event-id")} />
     default:
-      return <h2>Error!</h2>;
+      return <h2>Fine till now!</h2>;
   }
 };
 

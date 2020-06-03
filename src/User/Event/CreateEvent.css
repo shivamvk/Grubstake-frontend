@@ -10,6 +10,9 @@
   background-color: #d8d9da;
 }
 
+.create-event__pill-selected {
+  background-color: #d8d9da !important;
+}
 .react-date-picker__wrapper {
   border-top: none !important;
   border-left: none !important;

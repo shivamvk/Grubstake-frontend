@@ -10,7 +10,7 @@ const CreateEventPageThree = (props) => {
       <Container>
         <p className="text-align-left">
           <span className="margin-2 color-dark-grey font-weight-light font-size-lg">
-            Looking for sponsors<br></br>
+            Want sponsorship<br></br>
           </span>
           <span className="margin-2 color-dark-grey font-weight-light">
             *Select an appropriate range right now and make a final deal later

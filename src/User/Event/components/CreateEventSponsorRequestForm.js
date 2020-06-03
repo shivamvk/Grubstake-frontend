@@ -51,7 +51,7 @@ const CreateEventSponsorRequestForm = (props) => {
           couponsRange: couponsRange,
           vouchersRange: vouchersRange,
         },
-        other: otherValue,
+        others: otherValue,
       },
     };
     console.log(inputs); //send this to backend later
@@ -77,7 +77,8 @@ const CreateEventSponsorRequestForm = (props) => {
           <span className="color-dark-grey">
             <RupeeIcon className="color-dark-grey" />
             {convertNumberToIndianFormatString(sponsorsAmountRange.min)} To{" "}
-            {convertNumberToIndianFormatString(sponsorsAmountRange.max)}
+            {convertNumberToIndianFormatString(sponsorsAmountRange.max)}{" "}
+            {sponsorsAmountRange.max === 1000000 ? "+" : ""}
           </span>
         </p>
       </Col>
@@ -110,6 +111,7 @@ const CreateEventSponsorRequestForm = (props) => {
           <span className="color-grey">Goodies range: </span>
           <span className="color-dark-grey">
             {goodiesRange.min} To {goodiesRange.max}
+            {goodiesRange.max === 10000 ? "+" : ""}
           </span>
         </p>
       </Col>
@@ -129,6 +131,7 @@ const CreateEventSponsorRequestForm = (props) => {
           <span className="color-grey">Coupons range: </span>
           <span className="color-dark-grey">
             {couponsRange.min} To {couponsRange.max}
+            {couponsRange.max === 10000 ? "+" : ""}
           </span>
         </p>
       </Col>
@@ -147,7 +150,8 @@ const CreateEventSponsorRequestForm = (props) => {
         <p>
           <span className="color-grey">Vaouchers range: </span>
           <span className="color-dark-grey">
-            {vouchersRange.min} To {vouchersRange.max}
+            {vouchersRange.min} To {vouchersRange.max} 
+            {vouchersRange.max === 10000 ? "+" : ""}
           </span>
         </p>
       </Col>
