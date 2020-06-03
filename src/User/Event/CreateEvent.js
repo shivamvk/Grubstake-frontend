@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CreateEventPageOne from "./sections/CreateEventPageOne";
 import CreateEventPageTwo from "./sections/CreateEventPageTwo";
 import CreateEventPageThree from "./sections/CreateEventPageThree";
+import CreateEventPageFour from "./sections/CreateEventPageFour";
 
 const CreateEvent = (props) => {
   const getUrlParameter = (name) => {
@@ -20,6 +21,8 @@ const CreateEvent = (props) => {
       return <CreateEventPageTwo type={getUrlParameter("type")} />;
     case "3":
       return <CreateEventPageThree eventId={getUrlParameter("event-id")} />;
+    case "4":
+      return <CreateEventPageFour eventId={getUrlParameter("event-id")} />
     default:
       return <h2>Error!</h2>;
   }

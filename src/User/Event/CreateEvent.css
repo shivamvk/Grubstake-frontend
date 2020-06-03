@@ -23,3 +23,16 @@
   border-right: none !important;
   border-bottom: 1px solid lightgrey !important;
 }
+
+.input-range__track--active{
+  background: #8bc2f2 !important;
+}
+
+.input-range__slider{
+  background: #8bc2f2 !important;
+  border: none !important;
+}
+
+.input-range__label-container{
+  display: none;
+}

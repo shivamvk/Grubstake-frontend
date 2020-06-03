@@ -69,27 +69,29 @@ const CreateEventBasicForm = (props) => {
     } else {
       let inputs = {
         id: uuid(),
-        basics: {
-          type: props.type,
-          title: formState.inputs.title.value,
-          orgName: formState.inputs.orgName.value,
-        },
-        location: {
-          address: formState.inputs.locationAddress.value,
-          city: formState.inputs.locationCity.value,
-        },
-        date: {
-          startDate: startDate,
-          endDate: showEndDateInput ? endDate : null,
-        },
-        time: {
-          startTime: startTime,
-          endTime: endTime,
-        },
-        links: {
-          website: formState.inputs.linksWebsite.value,
-          facebook: formState.inputs.linksFb.value,
-          instagram: formState.inputs.linksIg.value,
+        basicDetails: {
+          basics: {
+            type: props.type,
+            title: formState.inputs.title.value,
+            orgName: formState.inputs.orgName.value,
+          },
+          location: {
+            address: formState.inputs.locationAddress.value,
+            city: formState.inputs.locationCity.value,
+          },
+          date: {
+            startDate: startDate,
+            endDate: showEndDateInput ? endDate : null,
+          },
+          time: {
+            startTime: startTime,
+            endTime: endTime,
+          },
+          links: {
+            website: formState.inputs.linksWebsite.value,
+            facebook: formState.inputs.linksFb.value,
+            instagram: formState.inputs.linksIg.value,
+          },
         },
       };
       console.log(inputs);

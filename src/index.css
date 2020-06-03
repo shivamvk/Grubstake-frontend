@@ -85,7 +85,7 @@ code {
 }
 
 .color-dark-grey {
-  color: #606060;
+  color: #606060 !important;
 }
 
 .color-white {

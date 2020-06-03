@@ -1,0 +1,20 @@
+.toggle-switch__wrapper {
+  width: fit-content;
+  color: black;
+}
+
+.toggle-switch__span_wrapper {
+  border-radius: 5px;
+  width: 3rem;
+  padding: 0rem 0.25rem;
+  cursor: pointer;
+}
+
+.toggle-switch__margin-right {
+    margin-right: 2px;
+}
+
+.toggle-switch__checked {
+  background-color: #8bc2f2;
+  color: white;
+}
