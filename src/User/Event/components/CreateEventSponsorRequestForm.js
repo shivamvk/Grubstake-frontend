@@ -7,6 +7,7 @@ import { FaRupeeSign as RupeeIcon } from "react-icons/fa";
 import ToggleSwitch from "../../../shared/FormElements/ToggleSwitch";
 import Button from "../../../shared/FormElements/Button";
 import { useHistory } from "react-router-dom";
+import Input from "../../../shared/FormElements/Input";
 
 const CreateEventSponsorRequestForm = (props) => {
   let history = useHistory();
@@ -27,6 +28,7 @@ const CreateEventSponsorRequestForm = (props) => {
     max: 1000,
   });
   const [andor, setAndOr] = useState("AND");
+  const [otherValue, setOthersValue] = useState(null);
   const andOrCheckHandler = (checked) => {
     if (checked) {
       setAndOr("OR");
@@ -49,6 +51,7 @@ const CreateEventSponsorRequestForm = (props) => {
           couponsRange: couponsRange,
           vouchersRange: vouchersRange,
         },
+        other: otherValue,
       },
     };
     console.log(inputs); //send this to backend later
@@ -60,7 +63,7 @@ const CreateEventSponsorRequestForm = (props) => {
     x = x.toString();
     var lastThree = x.substring(x.length - 3);
     var otherNumbers = x.substring(0, x.length - 3);
-    if (otherNumbers != "") lastThree = "," + lastThree;
+    if (otherNumbers !== "") lastThree = "," + lastThree;
     return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
   };
 
@@ -160,6 +163,18 @@ const CreateEventSponsorRequestForm = (props) => {
         <br></br>
       </Col>
       <br></br>
+      <Input
+        id="others"
+        element="input"
+        type="text"
+        onInput={(id, value) => {
+          setOthersValue(value);
+        }}
+        validators={[]}
+        isValid={true}
+        label="Others"
+        placeholder="Any other request? (Please specify)"
+      />
       <br></br>
       <Button variant="main" type="submit" width="max">
         Save and continue
