@@ -6,6 +6,7 @@ import Button from "../../../shared/FormElements/Button";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import Input from "../../../shared/FormElements/Input";
 import { useHistory } from "react-router-dom";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const CreateEventPageFour = (props) => {
   let history = useHistory();
@@ -22,6 +23,17 @@ const CreateEventPageFour = (props) => {
   ];
   const [selectedOffers, setSelectedOffers] = useState([]);
   const [othersValue, setOthersValue] = useState(null);
+  const [availableForStalls, setAvailableForStalls] = useState(false);
+
+  const stallCheckboxClicked = (event) => {
+    var target = event.target;
+    if (target.checked) {
+      setAvailableForStalls(true);
+    } else {
+      setAvailableForStalls(false);
+    }
+  };
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (selectedOffers.length === 0) {
@@ -36,7 +48,11 @@ const CreateEventPageFour = (props) => {
       },
     };
     console.log(inputs);
-    history.push("/create/event/5?event-id=" + props.eventId);
+    if (availableForStalls) {
+      history.push("/create/event/5?event-id=" + props.eventId);
+    } else {
+      history.push("/create/event/7?event-id=" + props.eventId);
+    }
   };
   return (
     <>
@@ -112,6 +128,13 @@ const CreateEventPageFour = (props) => {
             label="Others"
             placeholder="Others? (Please specify)"
           />
+          <br></br>
+          <InputGroup>
+            <InputGroup.Checkbox onClick={stallCheckboxClicked} />
+            <span className="margin-left-1 color-grey">
+              Check if you're open to stalls/vendors.
+            </span>
+          </InputGroup>
           <br></br>
           <Button variant="main" width="max" type="submit">
             Save and continue
