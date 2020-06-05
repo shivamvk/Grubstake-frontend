@@ -80,8 +80,8 @@ const CreateEventBasicForm = (props) => {
             city: formState.inputs.locationCity.value,
           },
           date: {
-            startDate: startDate,
-            endDate: showEndDateInput ? endDate : null,
+            startDate: startDate.toISOString(),
+            endDate: showEndDateInput ? endDate.toISOString() : null,
           },
           time: {
             startTime: startTime,

@@ -51,7 +51,7 @@ const CreateEventPageFour = (props) => {
     if (availableForStalls) {
       history.push("/create/event/5?event-id=" + props.eventId);
     } else {
-      history.push("/create/event/7?event-id=" + props.eventId);
+      history.push("/create/event/6?event-id=" + props.eventId);
     }
   };
   return (
