@@ -4,10 +4,10 @@ import "react-input-range/lib/css/index.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FaRupeeSign as RupeeIcon } from "react-icons/fa";
-import ToggleSwitch from "../../../shared/FormElements/ToggleSwitch";
-import Button from "../../../shared/FormElements/Button";
+import ToggleSwitch from "../../shared/FormElements/ToggleSwitch";
+import Button from "../../shared/FormElements/Button";
 import { useHistory } from "react-router-dom";
-import Input from "../../../shared/FormElements/Input";
+import Input from "../../shared/FormElements/Input";
 
 const CreateEventSponsorRequestForm = (props) => {
   let history = useHistory();

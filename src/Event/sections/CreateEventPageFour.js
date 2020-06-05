@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import CreateEventHeader from "../components/CreateEventHeader";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
-import Button from "../../../shared/FormElements/Button";
+import Button from "../../shared/FormElements/Button";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
-import Input from "../../../shared/FormElements/Input";
+import Input from "../../shared/FormElements/Input";
 import { useHistory } from "react-router-dom";
 import InputGroup from "react-bootstrap/InputGroup";
 

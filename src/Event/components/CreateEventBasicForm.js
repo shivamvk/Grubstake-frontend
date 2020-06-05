@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import Input from "../../../shared/FormElements/Input";
-import { VALIDATOR_REQUIRE } from "../../../shared/util/validator";
+import Input from "../../shared/FormElements/Input";
+import { VALIDATOR_REQUIRE } from "../../shared/util/validator";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import DatePicker from "react-date-picker";
 import TimePicker from "react-time-picker";
 import InputGroup from "react-bootstrap/InputGroup";
-import Button from "../../../shared/FormElements/Button";
-import { useForm } from "../../../shared/hooks/form-hook";
+import Button from "../../shared/FormElements/Button";
+import { useForm } from "../../shared/hooks/form-hook";
 import { v4 as uuid } from "uuid";
 import { useHistory } from "react-router-dom";
 

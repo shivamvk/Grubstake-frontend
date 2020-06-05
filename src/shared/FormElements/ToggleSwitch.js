@@ -1,18 +1,18 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 import "./ToggleSwitch.scss";
 import Row from "react-bootstrap/Row";
 
 const ToggleSwitch = (props) => {
   const [checked, setChecked] = useState(props.checked);
-  const checkedWrapperClickHandler = useCallback(() => {
+  const checkedWrapperClickHandler = () => {
     props.onChange(true);
     setChecked(true);
-  });
-  const uncheckedWrapperClickHandler = useCallback(() => {
+  };
+  const uncheckedWrapperClickHandler = () => {
     props.onChange(false);
     setChecked(false);
-  });
+  };
   return (
     <Row className={`toggle-switch__wrapper ${props.className}`}>
       <div
