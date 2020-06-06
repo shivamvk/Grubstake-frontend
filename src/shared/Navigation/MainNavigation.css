@@ -59,5 +59,6 @@
 
   .main-navigation__header-nav {
     display: block;
+    margin-right: 2rem;
   }
 }

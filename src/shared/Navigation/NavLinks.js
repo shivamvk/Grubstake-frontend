@@ -9,7 +9,7 @@ const NavLinks = (props) => {
 
   const auth = useContext(AuthContext);
 
-  if (auth.isLoggenIn) {
+  if (auth.isLoggedIn) {
     list = (
       <ul className="nav-links">
         <li>
@@ -21,9 +21,6 @@ const NavLinks = (props) => {
         <li>
           <NavLink to="/user/profile">Profile</NavLink>
         </li>
-        <li>
-          <NavLink to="/logout">Logout</NavLink>
-        </li>
       </ul>
     );
   } else {
@@ -31,9 +28,6 @@ const NavLinks = (props) => {
       <ul className="nav-links">
         <li>
           <NavLink to="/">Contact us</NavLink>
-        </li>
-        <li>
-          <NavLink to="/signup">Login/Signup</NavLink>
         </li>
       </ul>
     );

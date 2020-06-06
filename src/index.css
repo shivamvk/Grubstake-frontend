@@ -25,6 +25,12 @@ code {
   top: 40%;
 }
 
+.pos-right-5-top-1 {
+  position: absolute;
+  right: 5rem;
+  top: 0.8rem;
+}
+
 .top-center {
   position: absolute;
   top: 1rem;

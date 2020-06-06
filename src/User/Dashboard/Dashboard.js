@@ -34,11 +34,10 @@ const Dashboard = () => {
             Dashboard
           </h2>
           <br></br>
-          <ProfileSection events={DUMMY_EVENTS}/>
+          {window.innerWidth > 992 && <ProfileSection events={DUMMY_EVENTS} />}
         </Col>
         <Col md={12} lg={8}>
-          <br></br>
-          <br></br>
+          {window.innerWidth > 992 && <><br></br><br></br></>}
           <DashboardSection
             events={DUMMY_EVENTS}
             addEvent={addEventHandler}
