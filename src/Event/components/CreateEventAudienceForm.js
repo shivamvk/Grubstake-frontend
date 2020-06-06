@@ -32,20 +32,20 @@ const CreateEventAudienceForm = (props) => {
     false
   );
 
-  const formSubmitHandler = event => {
-      event.preventDefault();
-      if(selectedAudienceType.length === 0){
-          console.log("invalid inputs");
-          return;
-      }
-      const inputs = {
-          id: props.eventId,
-          audienceDetails: {
-              expectedFootfall: formState.inputs.footfall.value,
-              audienceTypes: selectedAudienceType
-          }
-      };
-      console.log(inputs);
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+    if (selectedAudienceType.length === 0 || !formState.isValid) {
+      console.log("invalid inputs");
+      return;
+    }
+    const inputs = {
+      id: props.eventId,
+      audienceDetails: {
+        expectedFootfall: formState.inputs.footfall.value,
+        audienceTypes: selectedAudienceType,
+      },
+    };
+    console.log(inputs);
   };
 
   return (
@@ -68,6 +68,7 @@ const CreateEventAudienceForm = (props) => {
         {DUMMY_AUDIENCE_TYPE.map((audienceType) => {
           return (
             <Badge
+              key={audienceType}
               className={`create-event__pill ${
                 selectedAudienceType.includes(audienceType)
                   ? "create-event__pill-selected"

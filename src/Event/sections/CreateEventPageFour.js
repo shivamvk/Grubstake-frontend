@@ -70,6 +70,7 @@ const CreateEventPageFour = (props) => {
         {DUMMY_OFFERS.map((offer) => {
           return (
             <Badge
+              key={offer}
               className={`create-event__pill ${
                 selectedOffers.includes(offer)
                   ? "create-event__pill-selected"
