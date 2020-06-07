@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Social from "./sections/Social";
 import Container from "react-bootstrap/Container";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SignupForm from "./sections/SignupForm";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,19 +10,15 @@ import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import "./Auth.scss";
 
 const Signup = () => {
-  const [redirect, setRedirect] = useState(null);
-
-  if (redirect) {
-    return <Redirect to="/" />;
-  }
+  const history = useHistory();
 
   const closeClickHandler = () => {
-    setRedirect("/");
-  }
+    history.goBack();
+  };
   if (window.innerWidth < 768) {
     return (
       <Container>
-        <CloseIcon className="close" onClick={closeClickHandler}/>
+        <CloseIcon className="close" onClick={closeClickHandler} />
         <h1>Signup</h1>
         <h6>
           Already have a Grubstake Account?{" "}
@@ -38,13 +34,11 @@ const Signup = () => {
   } else {
     return (
       <Container>
-        <CloseIcon  className="close" onClick={closeClickHandler}/>
+        <CloseIcon className="close" onClick={closeClickHandler} />
         <h1>Signup</h1>
         <h6>
           Already have a Grubstake Account?{" "}
-          <Link to="/login">
-            <span className="blue-text">Login</span>
-          </Link>
+          <span className="blue-text" onClick={()=>{history.replace("/login")}}>Login</span>
         </h6>
         <Row>
           <Col md={5}>

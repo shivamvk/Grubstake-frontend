@@ -14,7 +14,8 @@ label {
   position: relative;
   display: block;
 
-  input {
+  input,
+  textarea {
     font-family: "Barlow", sans-serif;
     box-sizing: border-box;
     display: block;
@@ -30,7 +31,6 @@ label {
 
     &::placeholder {
       transition: all 0.2s ease-in-out;
-      color: skyblue;
       font-family: "Barlow", sans-serif;
     }
 

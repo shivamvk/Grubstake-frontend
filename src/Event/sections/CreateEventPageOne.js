@@ -1,27 +1,28 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CreateEventHeader from "../components/CreateEventHeader";
 
 import "../CreateEvent.css";
 
-const CreateEventPageOne = () => {
-  const EVENT_TYPES = [
-    "Concert",
-    "Training or workshop",
-    "Conference",
-    "Convention",
-    "Dinner or grill",
-    "College fest",
-    "Exhibition",
-    "Festival or fair",
-    "Gaming",
-    "Seminar or talk",
-    "Screening",
-    "Party",
-  ];
+const EVENT_TYPES = [
+  "Concert",
+  "Training or workshop",
+  "Conference",
+  "Convention",
+  "Dinner or grill",
+  "College fest",
+  "Exhibition",
+  "Festival or fair",
+  "Gaming",
+  "Seminar or talk",
+  "Screening",
+  "Party",
+];
 
+const CreateEventPageOne = () => {
+  const history = useHistory();
   return (
     <>
       <CreateEventHeader />
@@ -32,15 +33,21 @@ const CreateEventPageOne = () => {
         <br></br>
         {EVENT_TYPES.map((type) => {
           return (
-            <Link to={`/create/event/2?type=${type}`}>
-              <Badge className="create-event__pill" pill variant="light">
-                {window.innerWidth < 768 ? (
-                  <h6 className="color-grey font-weight-light">{type}</h6>
-                ) : (
-                  <h5 className="color-grey font-weight-light">{type}</h5>
-                )}
-              </Badge>
-            </Link>
+            <Badge
+              key={type}
+              onClick={() => {
+                history.replace("/create/event/2?type=" + type);
+              }}
+              className="create-event__pill"
+              pill
+              variant="light"
+            >
+              {window.innerWidth < 768 ? (
+                <h6 className="color-grey font-weight-light">{type}</h6>
+              ) : (
+                <h5 className="color-grey font-weight-light">{type}</h5>
+              )}
+            </Badge>
           );
         })}
       </Container>

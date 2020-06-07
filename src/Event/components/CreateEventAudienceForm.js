@@ -5,23 +5,24 @@ import Badge from "react-bootstrap/Badge";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import Button from "../../shared/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
+import { useHistory } from "react-router-dom";
+
+const DUMMY_AUDIENCE_TYPE = [
+  "Senior management",
+  "Entrepreneur and SME's",
+  "Industry specific",
+  "College students",
+  "School students",
+  "Housewives",
+  "working professionals",
+  "Doctors",
+  "Mostly women",
+  "Mostly men",
+];
 
 const CreateEventAudienceForm = (props) => {
-  const DUMMY_AUDIENCE_TYPE = [
-    "Senior management",
-    "Entrepreneur and SME's",
-    "Industry specific",
-    "College students",
-    "School students",
-    "Housewives",
-    "working professionals",
-    "Doctors",
-    "Mostly women",
-    "Mostly men",
-  ];
-
+  const history = useHistory();
   const [selectedAudienceType, setSelectedAudienceType] = useState([]);
-
   const [formState, inputHandler] = useForm(
     {
       footfall: {
@@ -46,6 +47,7 @@ const CreateEventAudienceForm = (props) => {
       },
     };
     console.log(inputs);
+    history.replace("/create/event/7?event-id=" + props.eventId);
   };
 
   return (

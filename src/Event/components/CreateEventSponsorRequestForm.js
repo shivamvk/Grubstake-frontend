@@ -55,7 +55,7 @@ const CreateEventSponsorRequestForm = (props) => {
       },
     };
     console.log(inputs); //send this to backend later
-    history.push("/create/event/4?event-id=" + props.eventId);
+    history.replace("/create/event/4?event-id=" + props.eventId);
   };
 
   const convertNumberToIndianFormatString = (num) => {

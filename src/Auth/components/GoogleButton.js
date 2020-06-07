@@ -1,28 +1,21 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import GoogleLogin from "react-google-login";
 import Button from "react-bootstrap/Button";
-import { Redirect } from "react-router-dom";
 import {AuthContext} from "../../shared/context/auth-context";
 
 import "./GoogleButton.scss";
 
 const GoogleButton = () => {
   const auth = useContext(AuthContext);
-  const [redirect, setRedirect] = useState(null);
 
   const responseGoogleSuccess = (response) => {
     console.log(response);
     auth.login();
-    setRedirect("/intermediate/after-auth");
   };
 
   const responseGoogleFailure = (response) => {
     console.log(response);
   };
-
-  if(redirect){
-    return <Redirect to={redirect}></Redirect>
-  }
 
   return (
     <GoogleLogin

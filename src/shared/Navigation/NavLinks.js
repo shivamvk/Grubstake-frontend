@@ -18,9 +18,6 @@ const NavLinks = (props) => {
         <li>
           <NavLink to="/user/dashboard">Dashboard</NavLink>
         </li>
-        <li>
-          <NavLink to="/user/profile">Profile</NavLink>
-        </li>
       </ul>
     );
   } else {

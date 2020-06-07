@@ -9,7 +9,9 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         value: action.value,
-        isValid: action.validators? validate(action.value, action.validators) : true,
+        isValid: action.validators
+          ? validate(action.value, action.validators)
+          : true,
       };
     case "BLUR":
       return {
@@ -55,15 +57,21 @@ const Input = (props) => {
         onChange={changeHandler}
         onBlur={blurHandler}
         value={inputState.value}
-        className={`${!inputState.isValid && inputState.isTouched? "error-border": null}`}
+        className={`${
+          !inputState.isValid && inputState.isTouched ? "error-border" : null
+        }`}
       />
     ) : (
       <textarea
         id={props.id}
         rows={props.rows || 3}
+        placeholder={props.placeholder}
         onChange={changeHandler}
         onBlur={blurHandler}
         value={inputState.value}
+        className={`${
+          !inputState.isValid && inputState.isTouched ? "error-border" : null
+        }`}
       />
     );
 

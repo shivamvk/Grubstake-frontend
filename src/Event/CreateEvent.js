@@ -5,6 +5,7 @@ import CreateEventPageTwo from "./sections/CreateEventPageTwo";
 import CreateEventPageThree from "./sections/CreateEventPageThree";
 import CreateEventPageFour from "./sections/CreateEventPageFour";
 import CreateEventPageSix from "./sections/CreateEventPageSix";
+import CreateEventPageSeven from "./sections/CreateEventPageSeven";
 
 const CreateEvent = (props) => {
   const page = useParams().page;
@@ -19,6 +20,8 @@ const CreateEvent = (props) => {
       return <CreateEventPageFour eventId={getUrlParameter("event-id")} />;
     case "6":
       return <CreateEventPageSix eventId={getUrlParameter("event-id")} />;
+    case "7":
+      return <CreateEventPageSeven eventId={getUrlParameter("event-id")} />;
     default:
       return <h2>Fine till now!</h2>;
   }
