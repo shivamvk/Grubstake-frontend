@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from "react";
-
 import { validate } from "../util/validator";
 import "./Input.scss";
 
@@ -57,6 +56,7 @@ const Input = (props) => {
         onChange={changeHandler}
         onBlur={blurHandler}
         value={inputState.value}
+        disabled={props.disabled}
         className={`${
           !inputState.isValid && inputState.isTouched ? "error-border" : null
         }`}

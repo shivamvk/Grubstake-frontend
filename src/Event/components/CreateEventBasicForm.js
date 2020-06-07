@@ -11,13 +11,17 @@ import Button from "../../shared/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
 import { v4 as uuid } from "uuid";
 import { useHistory } from "react-router-dom";
+import Notify from "../../shared/UIElements/Notify";
 
 const CreateEventBasicForm = (props) => {
+  const [showNotify, setShowNotify] = useState(false);
+  const [notifyDescription, setNotifyDescription] = useState();
   const [showEndDateInput, setShowEndDateInput] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startTime, setStartTime] = useState("10:00");
   const [endTime, setEndTime] = useState("05:00");
+
   let history = useHistory();
 
   const multiDayCheckboxClickHandler = (event) => {
@@ -66,6 +70,8 @@ const CreateEventBasicForm = (props) => {
     event.preventDefault();
     if (!formState.isValid) {
       console.log("invalid inputs");
+      setNotifyDescription("Please fill the form correctly and submit again!");
+      setShowNotify(true);
     } else {
       let inputs = {
         id: uuid(),
@@ -99,90 +105,73 @@ const CreateEventBasicForm = (props) => {
     }
   };
 
+  const closeNotifyHandler = () => {
+    setShowNotify(false);
+    setNotifyDescription(null);
+  };
+
   return (
-    <form onSubmit={formSubmitHandler}>
-      <Input
-        id="title"
-        element="input"
-        type="text"
-        label="Title"
-        placeholder="Title of your event"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Please enter a valid title."
+    <>
+      <Notify
+        open={showNotify}
+        onClose={closeNotifyHandler}
+        description={notifyDescription}
       />
-      <Input
-        id="orgName"
-        element="input"
-        type="text"
-        label="Organization name"
-        placeholder="Name of your organization"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Please enter a valid organization name."
-      />
-      <br></br>
-      <p className="text-align-left color-dark-grey font-size-md">Location</p>
-      <Input
-        id="locationAddress"
-        element="input"
-        type="text"
-        label="Address"
-        placeholder="Location/Venue of your event"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Please enter a valid address."
-      />
-      <Input
-        id="locationCity"
-        element="input"
-        type="text"
-        label="City"
-        placeholder="City of your event"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Please enter a valid city name."
-      />
-      <br></br>
-      <p className="text-align-left color-dark-grey font-size-md">
-        Date and Time
-      </p>
-      <Row xs={1}>
-        <Col md={6} className="d-flex justify-content-left">
-          <span className="color-grey font-size-md">
-            {showEndDateInput ? "Start" : null} Date:{" "}
-            <DatePicker
-              className="create-event__date-picker-border"
-              onChange={(date) => setStartDate(date)}
-              value={startDate}
-              clearIcon={null}
-              calendarIcon={null}
-            />
-          </span>
-          <br></br>
-          <br></br>
-        </Col>
-        <Col md={6} className="d-flex justify-content-left">
-          {showEndDateInput ? null : (
-            <>
-              <InputGroup className="mb-3">
-                <InputGroup.Checkbox onClick={multiDayCheckboxClickHandler} />
-                <span className="margin-left-1 color-grey">
-                  Is a multi day event
-                </span>
-              </InputGroup>
-            </>
-          )}
-        </Col>
-      </Row>
-      {showEndDateInput ? (
-        <Row xs={1} className="margin-top-1">
+      <form onSubmit={formSubmitHandler}>
+        <Input
+          id="title"
+          element="input"
+          type="text"
+          label="Title"
+          placeholder="Title of your event"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid title."
+        />
+        <Input
+          id="orgName"
+          element="input"
+          type="text"
+          label="Organization name"
+          placeholder="Name of your organization"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid organization name."
+        />
+        <br></br>
+        <p className="text-align-left color-dark-grey font-size-md">Location</p>
+        <Input
+          id="locationAddress"
+          element="input"
+          type="text"
+          label="Address"
+          placeholder="Location/Venue of your event"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid address."
+        />
+        <Input
+          id="locationCity"
+          element="input"
+          type="text"
+          label="City"
+          placeholder="City of your event"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid city name."
+        />
+        <br></br>
+        <p className="text-align-left color-dark-grey font-size-md">
+          Date and Time
+        </p>
+        <Row xs={1}>
           <Col md={6} className="d-flex justify-content-left">
             <span className="color-grey font-size-md">
-              End Date:{" "}
+              {showEndDateInput ? "Start" : null} Date:{" "}
               <DatePicker
-                onChange={(date) => setEndDate(date)}
-                value={endDate}
+                className="create-event__date-picker-border"
+                onChange={(date) => setStartDate(date)}
+                value={startDate}
                 clearIcon={null}
                 calendarIcon={null}
               />
@@ -191,83 +180,112 @@ const CreateEventBasicForm = (props) => {
             <br></br>
           </Col>
           <Col md={6} className="d-flex justify-content-left">
-            <InputGroup className="mb-3">
-              <InputGroup.Checkbox onClick={singleDayCheckboxClickHandler} />
-              <span className="margin-left-1 color-grey">
-                Is a single day event
-              </span>
-            </InputGroup>
+            {showEndDateInput ? null : (
+              <>
+                <InputGroup className="mb-3">
+                  <InputGroup.Checkbox onClick={multiDayCheckboxClickHandler} />
+                  <span className="margin-left-1 color-grey">
+                    Is a multi day event
+                  </span>
+                </InputGroup>
+              </>
+            )}
           </Col>
         </Row>
-      ) : null}
-      <Row xs={1} className="margin-top-1">
-        <Col md={6} className="d-flex justify-content-left">
-          <span className="color-grey font-size-md">
-            Start Time:{" "}
-            <TimePicker
-              clearIcon={null}
-              clockIcon={null}
-              format="hh:mm a"
-              value={startTime}
-              onChange={(time) => setStartTime(time)}
-            />
-          </span>
-          <br></br>
-          <br></br>
-        </Col>
-        <Col md={6} className="d-flex justify-content-left">
-          <span className="color-grey font-size-md">
-            End Time:{" "}
-            <TimePicker
-              clearIcon={null}
-              clockIcon={null}
-              format="hh:mm a"
-              value={endTime}
-              onChange={(time) => setEndTime(time)}
-            />
-          </span>
-        </Col>
-      </Row>
-      <br></br>
-      <p className="text-align-left color-dark-grey font-size-md">Links</p>
-      <Input
-        id="linksWebsite"
-        element="input"
-        type="text"
-        label="Website"
-        placeholder="Website (www.your-event.com)"
-        onInput={() => {}}
-        validators={[]}
-        isValid={true}
-      />
-      <Input
-        id="linksFb"
-        element="input"
-        type="text"
-        label="Facebook link"
-        placeholder="Facebook page link (fb.com/your-event)"
-        onInput={() => {}}
-        validators={[]}
-        isValid={true}
-      />
-      <Input
-        id="linksIg"
-        element="input"
-        type="text"
-        label="Instagram link"
-        placeholder="Instagram page link (ig.com/your-event)"
-        onInput={() => {}}
-        validators={[]}
-        isValid={true}
-      />
-      <br></br>
-      <br></br>
-      <Button variant="main" width="max" type="submit">
-        Save and continue
-      </Button>
-      <br></br>
-      <br></br>
-    </form>
+        {showEndDateInput ? (
+          <Row xs={1} className="margin-top-1">
+            <Col md={6} className="d-flex justify-content-left">
+              <span className="color-grey font-size-md">
+                End Date:{" "}
+                <DatePicker
+                  onChange={(date) => setEndDate(date)}
+                  value={endDate}
+                  clearIcon={null}
+                  calendarIcon={null}
+                />
+              </span>
+              <br></br>
+              <br></br>
+            </Col>
+            <Col md={6} className="d-flex justify-content-left">
+              <InputGroup className="mb-3">
+                <InputGroup.Checkbox onClick={singleDayCheckboxClickHandler} />
+                <span className="margin-left-1 color-grey">
+                  Is a single day event
+                </span>
+              </InputGroup>
+            </Col>
+          </Row>
+        ) : null}
+        <Row xs={1} className="margin-top-1">
+          <Col md={6} className="d-flex justify-content-left">
+            <span className="color-grey font-size-md">
+              Start Time:{" "}
+              <TimePicker
+                clearIcon={null}
+                clockIcon={null}
+                format="hh:mm a"
+                value={startTime}
+                onChange={(time) => setStartTime(time)}
+              />
+            </span>
+            <br></br>
+            <br></br>
+          </Col>
+          <Col md={6} className="d-flex justify-content-left">
+            <span className="color-grey font-size-md">
+              End Time:{" "}
+              <TimePicker
+                clearIcon={null}
+                clockIcon={null}
+                format="hh:mm a"
+                value={endTime}
+                onChange={(time) => setEndTime(time)}
+              />
+            </span>
+          </Col>
+        </Row>
+        <br></br>
+        <p className="text-align-left color-dark-grey font-size-md">Links</p>
+        <Input
+          id="linksWebsite"
+          element="input"
+          type="text"
+          label="Website"
+          placeholder="Website (www.your-event.com)"
+          onInput={() => {}}
+          validators={[]}
+          isValid={true}
+        />
+        <Input
+          id="linksFb"
+          element="input"
+          type="text"
+          label="Facebook link"
+          placeholder="Facebook page link (fb.com/your-event)"
+          onInput={() => {}}
+          validators={[]}
+          isValid={true}
+        />
+        <Input
+          id="linksIg"
+          element="input"
+          type="text"
+          label="Instagram link"
+          placeholder="Instagram page link (ig.com/your-event)"
+          onInput={() => {}}
+          validators={[]}
+          isValid={true}
+        />
+        <br></br>
+        <br></br>
+        <Button variant="main" width="max" type="submit">
+          Save and continue
+        </Button>
+        <br></br>
+        <br></br>
+      </form>
+    </>
   );
 };
 
