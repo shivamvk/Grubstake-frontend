@@ -82,6 +82,11 @@ code {
   margin-left: 1rem;
 }
 
+.margin-horizontal-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .margin-2 {
   margin: 2rem;
 }

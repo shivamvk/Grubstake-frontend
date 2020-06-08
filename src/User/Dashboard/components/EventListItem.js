@@ -2,12 +2,12 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { AiOutlineRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 const ShortListItem = (props) => {
   return (
-    <Link to={`/user/dashboard/event/${props.id}`} className="remove-link-decoration">
+    <Link to={`/user/event/${props.id}`} className="remove-link-decoration">
       <Card className="dashboard-section__list-card">
         <Row>
           <Col xs={4} md={3} className="d-flex justify-content-start">
@@ -21,8 +21,12 @@ const ShortListItem = (props) => {
               {props.description}
             </Card.Text>
           </Col>
-          <AiOutlineRight className="right-center-vetical color-grey" />
         </Row>
+        <p className="text-align-left color-grey font-weight-light">
+          <Moment date={props.startDate} format="dddd, MMMM Do"/>
+          <br></br>
+          {props.location}
+        </p>
       </Card>
       <br></br>
     </Link>

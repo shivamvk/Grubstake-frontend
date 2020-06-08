@@ -2,10 +2,10 @@ import React from "react";
 import Button from "../../../shared/FormElements/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ShortListItem from "./ShortListItem";
+import EventListItem from "./EventListItem";
 import { Link } from "react-router-dom";
 
-const ShortList = (props) => {
+const UserEventsList = (props) => {
   return (
     <>
       <Row>
@@ -22,7 +22,7 @@ const ShortList = (props) => {
       </Row>
       <br></br>
       {props.events.map((event) => (
-        <ShortListItem
+        <EventListItem
           key={event.id}
           id={event.id}
           image={event.image}
@@ -34,4 +34,4 @@ const ShortList = (props) => {
   );
 };
 
-export default ShortList;
+export default UserEventsList;

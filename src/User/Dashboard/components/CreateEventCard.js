@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import "../sections/DashboardSection.css";
 
-const EmptyList = (props) => {
+const CreateEventCard = (props) => {
   return (
     <>
       <Card className="dashboard-section__card">
@@ -24,4 +24,4 @@ const EmptyList = (props) => {
   );
 };
 
-export default EmptyList;
+export default CreateEventCard;

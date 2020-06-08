@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ProfileSection from "./sections/ProfileSection";
 import DashboardSection from "./sections/DashboardSection";
+import Footer from "../../shared/UIElements/Footer";
 
 const Dashboard = () => {
   let [DUMMY_EVENTS, setDummyEvents] = useState([]);
@@ -23,7 +24,7 @@ const Dashboard = () => {
     console.log(DUMMY_EVENTS);
   };
   return (
-    <Container>
+    <><Container>
       <Row>
         <Col md={12} lg={4}>
           <h2
@@ -47,6 +48,9 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
+    <br></br>
+    <Footer />
+    </>
   );
 };
 
