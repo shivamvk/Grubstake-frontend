@@ -21,7 +21,7 @@ const EVENT_TYPES = [
   "Party",
 ];
 
-const CreateEventPageOne = () => {
+const CreateEventTypePage = () => {
   const history = useHistory();
   return (
     <>
@@ -36,7 +36,7 @@ const CreateEventPageOne = () => {
             <Badge
               key={type}
               onClick={() => {
-                history.replace("/create/event/2?type=" + type);
+                history.replace("/create/event/basic-form?type=" + type);
               }}
               className="create-event__pill"
               pill
@@ -55,4 +55,4 @@ const CreateEventPageOne = () => {
   );
 };
 
-export default CreateEventPageOne;
+export default CreateEventTypePage;

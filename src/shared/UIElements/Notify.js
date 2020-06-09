@@ -19,21 +19,24 @@ const Notify = (props) => {
         open={props.open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={props.onClose}
+        onClose={props.onCancel}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {props.title}
+          <span className="color-dark-grey">{props.title}</span>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            {props.description}
+            <span className="font-weight-light">{props.description}</span>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose} color="primary">
-            Okay
+          <Button onClick={props.onCancel} color="primary">
+            {props.cancelText}
+          </Button>
+          <Button onClick={props.onConfirm} color="primary">
+            {props.confirmText}
           </Button>
         </DialogActions>
       </Dialog>

@@ -13,7 +13,7 @@ const UserEventsList = (props) => {
           <h5 className="center-vertical color-dark-grey">{props.title}</h5>
         </Col>
         <Col xs={7} md={4} className="d-flex justify-content-end">
-          <Link to="/create/event/1">
+          <Link to="/create/event/event-type">
             <Button variant="main" width="max" padding="p-min">
               CREATE EVENT
             </Button>

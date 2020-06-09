@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import CreateEventHeader from "../components/CreateEventHeader";
 import CreateEventBasicForm from "../components/CreateEventBasicForm";
 
-const CreateEventPageTwo = (props) => {
+const CreateEventBasicFormPage = (props) => {
   return (
     <>
       <CreateEventHeader />
@@ -22,4 +22,4 @@ const CreateEventPageTwo = (props) => {
   );
 };
 
-export default CreateEventPageTwo;
+export default CreateEventBasicFormPage;

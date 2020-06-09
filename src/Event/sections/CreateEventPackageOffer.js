@@ -6,9 +6,10 @@ import Button from "../../shared/FormElements/Button";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import Input from "../../shared/FormElements/Input";
 import { useHistory } from "react-router-dom";
-import InputGroup from "react-bootstrap/InputGroup";
+import { VALIDATOR_REQUIRE } from "../../shared/util/validator";
+import { useForm } from "../../shared/hooks/form-hook";
 
-const CreateEventPageFour = (props) => {
+const CreateEventPackageOffer = (props) => {
   let history = useHistory();
   const DUMMY_OFFERS = [
     "Sales permission",
@@ -22,17 +23,20 @@ const CreateEventPageFour = (props) => {
     "Meet n Greet",
   ];
   const [selectedOffers, setSelectedOffers] = useState([]);
-  const [othersValue, setOthersValue] = useState(null);
-  const [availableForStalls, setAvailableForStalls] = useState(false);
 
-  const stallCheckboxClicked = (event) => {
-    var target = event.target;
-    if (target.checked) {
-      setAvailableForStalls(true);
-    } else {
-      setAvailableForStalls(false);
-    }
-  };
+  const [formState, inputHandler] = useForm(
+    {
+      packageTitle: {
+        value: "",
+        isValid: false,
+      },
+      other: {
+        value: "",
+        isValid: true,
+      },
+    },
+    false
+  );
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -40,19 +44,20 @@ const CreateEventPageFour = (props) => {
       console.log("invalid inputs");
       return;
     }
+    if (!formState.isValid) {
+      console.log("invalid inputs");
+      return;
+    }
     let inputs = {
       id: props.eventId,
       sponsorOfferDetails: {
         offers: selectedOffers,
-        others: othersValue,
+        title: formState.inputs.packageTitle.value,
+        others: formState.inputs.others.value,
       },
     };
     console.log(inputs);
-    if (availableForStalls) {
-      history.replace("/create/event/5?event-id=" + props.eventId);
-    } else {
-      history.replace("/create/event/6?event-id=" + props.eventId);
-    }
+    history.replace("/create/event/packages?event-id=" + props.eventId);
   };
   return (
     <>
@@ -60,7 +65,7 @@ const CreateEventPageFour = (props) => {
       <Container>
         <p className="text-align-left">
           <span className="margin-2 color-dark-grey font-weight-light font-size-lg">
-            Offer to sponsors<br></br>
+            Package details (Offering)<br></br>
           </span>
           <span className="margin-2 color-dark-grey font-weight-light">
             *Select the things you can provide to sponsors in return
@@ -118,27 +123,29 @@ const CreateEventPageFour = (props) => {
         <br></br>
         <form onSubmit={formSubmitHandler}>
           <Input
+            id="packageTitle"
+            element="input"
+            type="text"
+            onInput={inputHandler}
+            validators={[VALIDATOR_REQUIRE()]}
+            label="Title"
+            placeholder="Package title (Title sponsor, Food sponsor, General...)"
+            errorText="Please provide a valid title."
+          />
+          <Input
             id="others"
             element="input"
             type="text"
-            onInput={(id, value) => {
-              setOthersValue(value);
-            }}
+            onInput={inputHandler}
             validators={[]}
             isValid={true}
             label="Others"
             placeholder="Others? (Please specify)"
           />
           <br></br>
-          <InputGroup>
-            <InputGroup.Checkbox onClick={stallCheckboxClicked} />
-            <span className="margin-left-1 color-grey">
-              Check if you're open to stalls/vendors.
-            </span>
-          </InputGroup>
           <br></br>
           <Button variant="main" width="max" type="submit">
-            Save and continue
+            Save Package
           </Button>
         </form>
         <br></br>
@@ -148,4 +155,4 @@ const CreateEventPageFour = (props) => {
   );
 };
 
-export default CreateEventPageFour;
+export default CreateEventPackageOffer;

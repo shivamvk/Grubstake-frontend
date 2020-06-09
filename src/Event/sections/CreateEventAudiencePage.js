@@ -3,7 +3,7 @@ import CreateEventHeader from "../components/CreateEventHeader";
 import Container from "react-bootstrap/Container";
 import CreateEventAudienceForm from "../components/CreateEventAudienceForm";
 
-const CreateEventPageSix = (props) => {
+const CreateEventAudiencePage = (props) => {
   return (
     <>
       <CreateEventHeader />
@@ -24,4 +24,4 @@ const CreateEventPageSix = (props) => {
   );
 };
 
-export default CreateEventPageSix;
+export default CreateEventAudiencePage;

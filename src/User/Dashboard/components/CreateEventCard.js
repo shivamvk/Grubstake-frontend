@@ -11,7 +11,7 @@ const CreateEventCard = (props) => {
       <Card className="dashboard-section__card">
         <Card.Title className="color-white">{props.title}</Card.Title>
         <Card.Text className="color-white">{props.text}</Card.Text>
-        <Link to="/create/event/1">
+        <Link to="/create/event/event-type">
           <Button
             variant="inverse"
             width={window.innerWidth < 768 ? "max" : "med"}
