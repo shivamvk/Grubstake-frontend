@@ -7,19 +7,40 @@ import DashboardSection from "./sections/DashboardSection";
 import Footer from "../../shared/UIElements/Footer";
 
 const Dashboard = () => {
-  let [DUMMY_EVENTS, setDummyEvents] = useState([]);
+  let [DUMMY_EVENTS, setDummyEvents] = useState([
+    {
+      id: "e1",
+      basicDetails: {
+        basics: {
+          orgName: "JIIT, Noida",
+          title: "Impressions",
+          type: "College fest",
+        },
+        date: {
+          startDate: new Date().toISOString(),
+          // endDate: new Date(
+          //   new Date().getTime() + 1000 * 60 * 60 * 24
+          // ).toISOString(),
+          endDate: null,
+        },
+        links: {
+          website: "blabla.com",
+          facebook: "fb.com/blabla",
+          instagram: "ig.com/blabla",
+        },
+        location: {
+          address: "JIIT, Sector 62",
+          city: "Noida",
+        },
+        time: {
+          startTime: "10:00",
+          endTime: "5:00",
+        },
+      },
+    },
+  ]);
   const DUMMY_SPONSOR_APPLICATIONS = [];
   const addEventHandler = () => {
-    setDummyEvents((DUMMY_EVENTS) => [
-      ...DUMMY_EVENTS,
-      {
-        id: "e" + DUMMY_EVENTS.length,
-        image:
-          "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-        title: "Event " + DUMMY_EVENTS.length,
-        description: "Awesome event " + DUMMY_EVENTS.length,
-      },
-    ]);
     console.log(DUMMY_EVENTS);
   };
   return (

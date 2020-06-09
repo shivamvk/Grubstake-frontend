@@ -7,31 +7,34 @@ import "./DashboardSection.css";
 
 const DUMMY_SUGGESTED_EVENTS = [
   {
-    name: "Impressions",
-    description: "Annual cultural fest of JIIT.",
-    startDate: new Date().toISOString(),
-    location: "Noida",
-  },
-  {
-    name: "Cool event",
-    description:
-      "Some very long description. nkvcjdfsnkjvn nljnld nljkcndjlfnl nlkcmdlfnml nlkmdlkfm lknmljnjbuv hybgygyewqe dbyrqywerqwr cefu cvefubi cquqeic biuiefcn iusf.",
-    startDate: new Date().toISOString(),
-    endDate: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 2),
-    location: "New Delhi",
-  },
-  {
-    name: "bla bla event",
-    description: "A super awesome techno event",
-    startDate: new Date().toISOString(),
-    endDate: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 4),
-    location: "Bangalore",
-  },
-  {
-    name: "test event",
-    description: "A super awesome techno event",
-    startDate: new Date().toISOString(),
-    location: "Pune",
+    id: "e1",
+    basicDetails: {
+      basics: {
+        orgName: "JIIT, Noida",
+        title: "Impressions",
+        type: "College fest",
+      },
+      date: {
+        startDate: new Date().toISOString(),
+        // endDate: new Date(
+        //   new Date().getTime() + 1000 * 60 * 60 * 24
+        // ).toISOString(),
+        endDate: null
+      },
+      links: {
+        website: "blabla.com",
+        facebook: "fb.com/blabla",
+        instagram: "ig.com/blabla",
+      },
+      location: {
+        address: "JIIT, Sector 62",
+        city: "Noida",
+      },
+      time: {
+        startTime: "10:00",
+        endTime: "5:00",
+      },
+    },
   },
 ];
 
@@ -48,7 +51,7 @@ const DashboardSection = (props) => {
         />
       ) : (
         <UserEventsList
-          title="Events"
+          title="Your events"
           addEvent={props.addEvent}
           events={props.events}
         />

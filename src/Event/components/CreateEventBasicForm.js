@@ -101,7 +101,7 @@ const CreateEventBasicForm = (props) => {
         },
       };
       console.log(inputs); //send this to backend later
-      history.replace("/create/event/3?event-id=" + inputs.id);
+      history.replace("/create/event/6?event-id=" + inputs.id);
     }
   };
 
@@ -253,7 +253,7 @@ const CreateEventBasicForm = (props) => {
           type="text"
           label="Website"
           placeholder="Website (www.your-event.com)"
-          onInput={() => {}}
+          onInput={inputHandler}
           validators={[]}
           isValid={true}
         />
@@ -263,7 +263,7 @@ const CreateEventBasicForm = (props) => {
           type="text"
           label="Facebook link"
           placeholder="Facebook page link (fb.com/your-event)"
-          onInput={() => {}}
+          onInput={inputHandler}
           validators={[]}
           isValid={true}
         />
@@ -273,7 +273,7 @@ const CreateEventBasicForm = (props) => {
           type="text"
           label="Instagram link"
           placeholder="Instagram page link (ig.com/your-event)"
-          onInput={() => {}}
+          onInput={inputHandler}
           validators={[]}
           isValid={true}
         />

@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
-const ShortListItem = (props) => {
+const EventListItem = (props) => {
   return (
     <Link to={`/user/event/${props.id}`} className="remove-link-decoration">
       <Card className="dashboard-section__list-card">
@@ -18,12 +18,18 @@ const ShortListItem = (props) => {
               {props.title}
             </Card.Title>
             <Card.Text className="text-align-left color-grey">
-              {props.description}
+              {props.orgName}
             </Card.Text>
           </Col>
         </Row>
         <p className="text-align-left color-grey font-weight-light">
-          <Moment date={props.startDate} format="dddd, MMMM Do"/>
+          <Moment date={props.startDate} format="dddd, MMMM Do" />
+          {props.endDate && (
+            <>
+              <span className="color-dark-grey"> to </span>
+              <Moment date={props.endDate} format="dddd, MMMM Do" />
+            </>
+          )}
           <br></br>
           {props.location}
         </p>
@@ -33,4 +39,4 @@ const ShortListItem = (props) => {
   );
 };
 
-export default ShortListItem;
+export default EventListItem;
