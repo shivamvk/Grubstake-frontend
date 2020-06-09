@@ -48,8 +48,11 @@ const CreateEventPackageOffer = (props) => {
       console.log("invalid inputs");
       return;
     }
+    const INPUTS_FROM_PREVIOUS_PAGE = JSON.parse(localStorage.getItem("temp-package-details"));
+    localStorage.removeItem("temp-package-details");
     let inputs = {
       id: props.eventId,
+      sponsorRequestDetails: INPUTS_FROM_PREVIOUS_PAGE.sponsorRequestDetails,
       sponsorOfferDetails: {
         offers: selectedOffers,
         title: formState.inputs.packageTitle.value,

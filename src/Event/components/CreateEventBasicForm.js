@@ -166,7 +166,7 @@ const CreateEventBasicForm = (props) => {
         </p>
         <Row xs={1}>
           <Col md={6} className="d-flex justify-content-left">
-            <span className="color-grey font-size-md">
+            <span className="color-grey font-size-sm">
               {showEndDateInput ? "Start" : null} Date:{" "}
               <DatePicker
                 className="create-event__date-picker-border"
@@ -195,7 +195,7 @@ const CreateEventBasicForm = (props) => {
         {showEndDateInput ? (
           <Row xs={1} className="margin-top-1">
             <Col md={6} className="d-flex justify-content-left">
-              <span className="color-grey font-size-md">
+              <span className="color-grey font-size-sm">
                 End Date:{" "}
                 <DatePicker
                   onChange={(date) => setEndDate(date)}
@@ -219,7 +219,7 @@ const CreateEventBasicForm = (props) => {
         ) : null}
         <Row xs={1} className="margin-top-1">
           <Col md={6} className="d-flex justify-content-left">
-            <span className="color-grey font-size-md">
+            <span className="color-grey font-size-sm">
               Start Time:{" "}
               <TimePicker
                 clearIcon={null}
@@ -233,7 +233,7 @@ const CreateEventBasicForm = (props) => {
             <br></br>
           </Col>
           <Col md={6} className="d-flex justify-content-left">
-            <span className="color-grey font-size-md">
+            <span className="color-grey font-size-sm">
               End Time:{" "}
               <TimePicker
                 clearIcon={null}

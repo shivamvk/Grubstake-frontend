@@ -11,7 +11,19 @@
   transition: 1s;
 }
 
-.btn-main:hover {
+.btn-main-color-iverse {
+  background-image: linear-gradient(to right, #8bc2f2, #ff8fbc);
+  border: none;
+  color: white;
+  font-family: "Barlow", sans-serif;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  opacity: 1;
+  transition: 1s;
+}
+
+.btn-main,
+.btn-main-color-iverse:hover {
   opacity: 0.8;
   transition: 1s;
 }
@@ -74,14 +86,9 @@
   padding: 0.5rem 0.5rem;
 }
 
-.btn-main:focus {
-  outline: none;
-}
-
-.btn-outline:focus {
-  outline: none;
-}
-
+.btn-main:focus,
+.btn-main-color-iverse:focus,
+.btn-outline:focus,
 .btn-inverse:focus {
   outline: none;
 }

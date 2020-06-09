@@ -55,6 +55,7 @@ const CreateEventSponsorRequestForm = (props) => {
       },
     };
     console.log(inputs); //send this to backend later
+    localStorage.setItem("temp-package-details", JSON.stringify(inputs));
     history.replace("/create/event/create-package-offer?event-id=" + props.eventId);
   };
 
