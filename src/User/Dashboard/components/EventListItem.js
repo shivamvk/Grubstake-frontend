@@ -11,7 +11,7 @@ const ShortListItem = (props) => {
       <Card className="dashboard-section__list-card">
         <Row>
           <Col xs={4} md={3} className="d-flex justify-content-start">
-            <img src={props.image} alt={props.title} width="100" />
+            <img src={props.image} alt={props.title} width="100" height="75" />
           </Col>
           <Col xs={8} md={9}>
             <Card.Title className="text-align-left color-dark-grey">

@@ -14,7 +14,8 @@ const DUMMY_SUGGESTED_EVENTS = [
   },
   {
     name: "Cool event",
-    description: "A super awesome techno event",
+    description:
+      "Some very long description. nkvcjdfsnkjvn nljnld nljkcndjlfnl nlkcmdlfnml nlkmdlkfm lknmljnjbuv hybgygyewqe dbyrqywerqwr cefu cvefubi cquqeic biuiefcn iusf.",
     startDate: new Date().toISOString(),
     endDate: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 2),
     location: "New Delhi",
@@ -56,6 +57,13 @@ const DashboardSection = (props) => {
       <br></br>
       <h5 className="text-align-left color-dark-grey">
         Top events in the upcoming week looking for sponsors:
+      </h5>
+      <br></br>
+      <SuggestedEventsList events={DUMMY_SUGGESTED_EVENTS} />
+      <br></br>
+      <br></br>
+      <h5 className="text-align-left color-dark-grey">
+        Top events in the upcoming week open for vendors:
       </h5>
       <br></br>
       <SuggestedEventsList events={DUMMY_SUGGESTED_EVENTS} />

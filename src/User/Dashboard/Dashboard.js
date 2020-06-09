@@ -8,8 +8,7 @@ import Footer from "../../shared/UIElements/Footer";
 
 const Dashboard = () => {
   let [DUMMY_EVENTS, setDummyEvents] = useState([]);
-  const DUMMY_BRANDS = [];
-  const DUMMT_VENDORS = [];
+  const DUMMY_SPONSOR_APPLICATIONS = [];
   const addEventHandler = () => {
     setDummyEvents((DUMMY_EVENTS) => [
       ...DUMMY_EVENTS,
@@ -24,32 +23,43 @@ const Dashboard = () => {
     console.log(DUMMY_EVENTS);
   };
   return (
-    <><Container>
-      <Row>
-        <Col md={12} lg={4}>
-          <h2
-            className={`color-grey font-weight-bolder ${
-              window.innerWidth < 992 ? "text-align-center" : "text-align-left"
-            }`}
-          >
-            Dashboard
-          </h2>
-          <br></br>
-          {window.innerWidth > 992 && <ProfileSection events={DUMMY_EVENTS} />}
-        </Col>
-        <Col md={12} lg={8}>
-          {window.innerWidth > 992 && <><br></br><br></br></>}
-          <DashboardSection
-            events={DUMMY_EVENTS}
-            addEvent={addEventHandler}
-            brands={DUMMY_BRANDS}
-            vendors={DUMMT_VENDORS}
-          />
-        </Col>
-      </Row>
-    </Container>
-    <br></br>
-    <Footer />
+    <>
+      <Container>
+        <Row>
+          <Col md={12} lg={4}>
+            <h2
+              className={`color-grey font-weight-bolder ${
+                window.innerWidth < 992
+                  ? "text-align-center"
+                  : "text-align-left"
+              }`}
+            >
+              Dashboard
+            </h2>
+            <br></br>
+            {window.innerWidth > 992 && (
+              <ProfileSection
+                events={DUMMY_EVENTS}
+                sponsorApplications={DUMMY_SPONSOR_APPLICATIONS}
+              />
+            )}
+          </Col>
+          <Col md={12} lg={8}>
+            {window.innerWidth > 992 && (
+              <>
+                <br></br>
+                <br></br>
+              </>
+            )}
+            <DashboardSection
+              events={DUMMY_EVENTS}
+              addEvent={addEventHandler}
+            />
+          </Col>
+        </Row>
+      </Container>
+      <br></br>
+      <Footer />
     </>
   );
 };

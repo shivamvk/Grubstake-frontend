@@ -91,6 +91,10 @@ code {
   margin: 2rem;
 }
 
+.width-30 {
+  width: 30rem;
+}
+
 .color-grey {
   color: grey;
 }

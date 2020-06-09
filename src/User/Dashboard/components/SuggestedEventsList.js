@@ -14,7 +14,7 @@ const SuggestedEventsList = (props) => {
       hideArrows={true}
       hideSingleArrow={true}
       transition="2"
-      itemClass="menu-item-wrapper margin-horizontal-1"
+      itemClass="menu-item-wrapper margin-horizontal-1 width-30"
       data={props.events.map((event) => {
         return (
           <EventListItem
