@@ -35,7 +35,7 @@ const ProfileSection = (props) => {
           aria-controls="eventList"
           aria-expanded={isEventListOpen}
         >
-          <Card.Title className="text-align-left font-size-md color-dark-grey margin-1">
+          <Card.Title className="text-align-left font-size-sm color-dark-grey margin-1">
             Events
           </Card.Title>
           {isEventListOpen ? (
@@ -61,7 +61,7 @@ const ProfileSection = (props) => {
                     return (
                       <Link className="remove-link-decoration color-grey" to={`/user/dashboard/event/${event.id}`}>
                         <ListGroup.Item className="text-align-left border-bottom">
-                          {event.title}
+                          {event.basicDetails.basics.title}
                         </ListGroup.Item>
                       </Link>
                     );

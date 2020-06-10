@@ -5,7 +5,7 @@ import CreateEventBasicFormPage from "./sections/CreateEventBasicFormPage";
 import CreateEventPackageRequest from "./sections/CreateEventPackageRequest";
 import CreateEventPackageOffer from "./sections/CreateEventPackageOffer";
 import CreateEventAudiencePage from "./sections/CreateEventAudiencePage";
-import CreateEventPageSeven from "./sections/CreateEventPageSeven";
+import CreateEventPitchPage from "./sections/CreateEventPitchPage";
 import CreateEventPackagesPage from "./sections/CreateEventPackagesPage";
 
 const CreateEvent = (props) => {
@@ -24,7 +24,7 @@ const CreateEvent = (props) => {
     case "audience-details":
       return <CreateEventAudiencePage eventId={getUrlParameter("event-id")} />;
     case "7":
-      return <CreateEventPageSeven eventId={getUrlParameter("event-id")} />;
+      return <CreateEventPitchPage eventId={getUrlParameter("event-id")} />;
     default:
       return <h2>Fine till now!</h2>;
   }

@@ -2,7 +2,7 @@
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-color: whitesmoke;
+  background-color: white;
   border: none !important;
   padding: 2rem;
   min-height: 11rem;
@@ -14,14 +14,8 @@
 }
 
 .profile__greeting-wrapper {
-  background-color: whitesmoke;
+  background-color: white;
   padding: 1rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.profile__greeting-wrapper:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 10px 20px rgba(0, 0, 0, 0.23);
-  cursor: pointer;
 }
 
 .profile__greeting-temp-user-image {
@@ -32,17 +26,18 @@
 
 .profile__greeting-user-name {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: lighter;
   color: grey;
 }
 
 .profile__greeting-user-hello {
   font-size: 1rem;
+  font-weight: bold;
   color: grey;
 }
 
 .profile__greeting-right-icon {
   position: absolute;
   right: 1rem;
-  top: 30%;
+  top: 20%;
 }

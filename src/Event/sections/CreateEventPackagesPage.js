@@ -49,6 +49,10 @@ const CreateEventPackagesPage = (props) => {
   const continueClickHandler = () => {
     if (DUMMY_PACKAGES.length === 0) {
       setShowNotify(true);
+    } else {
+      history.replace(
+        "/create/event/audience-details?event-id=" + props.eventId
+      );
     }
   };
 
@@ -58,7 +62,7 @@ const CreateEventPackagesPage = (props) => {
 
   const notifyConfirmHandler = () => {
     setShowNotify(false);
-    history.push("/create/event/audience-details?event-id=" + props.eventId);
+    history.replace("/create/event/audience-details?event-id=" + props.eventId);
   };
 
   const createClickHandler = () => {
@@ -95,7 +99,7 @@ const CreateEventPackagesPage = (props) => {
               width="max"
               onClick={continueClickHandler}
             >
-              Save and continue
+              Continue
             </Button>
           </Col>
         </Row>

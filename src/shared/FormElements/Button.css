@@ -22,10 +22,11 @@
   transition: 1s;
 }
 
-.btn-main,
+.btn-main:hover,
 .btn-main-color-iverse:hover {
   opacity: 0.8;
   transition: 1s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .btn-outline {
@@ -33,7 +34,7 @@
   padding: 1rem;
   font-family: "Barlow", sans-serif;
   padding: 0.5rem 2rem;
-  color: black;
+  color: grey;
   box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
   border: solid 3px transparent;
   background-image: linear-gradient(

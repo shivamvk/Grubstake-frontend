@@ -2,7 +2,8 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { FaUser as UserIcon } from "react-icons/fa";
-import { AiOutlineRight as RightIcon } from "react-icons/ai";
+import Button from "../../../shared/FormElements/Button";
+import { Link } from "react-router-dom";
 
 const ProfileGreeting = (props) => {
   return (
@@ -11,16 +12,20 @@ const ProfileGreeting = (props) => {
         <Col xs={2}>
           <UserIcon className="profile__greeting-temp-user-image" />
         </Col>
-        <Col xs={9} className="d-flex justify-content-left">
+        <Col xs={6} className="d-flex justify-content-left">
           <p className="text-align-left">
             <span className="profile__greeting-user-hello">Hello,</span>
             <br></br>
             <span className="profile__greeting-user-name">Satyam Jaiswal</span>
           </p>
         </Col>
-        <Col xs={1}>
+        <Col xs={4}>
           <div className="profile__greeting-right-icon ">
-            <RightIcon />
+            <Link to="/user/profile/edit">
+              <Button variant="outline" padding="p-min">
+                Edit profile
+              </Button>
+            </Link>
           </div>
         </Col>
       </Row>

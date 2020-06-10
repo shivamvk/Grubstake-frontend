@@ -3,7 +3,7 @@ import CreateEventHeader from "../components/CreateEventHeader";
 import Container from "react-bootstrap/Container";
 import CreateEventPitchForm from "../components/CreateEventPitchForm";
 
-const CreateEventPageSeven = (props) => {
+const CreateEventPitchPage = (props) => {
   return (
     <>
       <CreateEventHeader />
@@ -23,4 +23,4 @@ const CreateEventPageSeven = (props) => {
   );
 };
 
-export default CreateEventPageSeven;
+export default CreateEventPitchPage;

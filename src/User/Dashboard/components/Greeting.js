@@ -13,7 +13,7 @@ const Greeting = (props) => {
         <p className="text-align-left margin-top-1">
           <span className="font-size-sm color-grey">Hello,</span>
           <br />
-          <span className="font-size-md font-weight-bold color-dark-grey">
+          <span className="font-size-sm font-weight-bold color-dark-grey">
             {props.name}
           </span>
         </p>

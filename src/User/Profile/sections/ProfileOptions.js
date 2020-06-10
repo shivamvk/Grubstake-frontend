@@ -6,26 +6,16 @@ import {
   MdDashboard as DashboardIcon,
   MdSecurity as SecurityIcon,
 } from "react-icons/md";
-import { BsBookmarksFill as SavedIcon } from "react-icons/bs";
 
 const ProfileOptions = (props) => {
   return (
-    <Row xs={1} lg={3}>
+    <Row xs={1} lg={2}>
       <Col>
         <ProfileOption
           link="/user/dashboard/"
           icon={<DashboardIcon style={{ fontSize: "2rem", color: "grey" }} />}
           title="Dashboard"
           description="See your events and sponsor application status"
-        />
-        <br></br>
-      </Col>
-      <Col>
-        <ProfileOption
-          link="/"
-          icon={<SavedIcon style={{ fontSize: "2rem", color: "grey" }} />}
-          title="Saved events"
-          description="See your saved/marked events"
         />
         <br></br>
       </Col>

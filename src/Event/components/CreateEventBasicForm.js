@@ -11,11 +11,8 @@ import Button from "../../shared/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
 import { v4 as uuid } from "uuid";
 import { useHistory } from "react-router-dom";
-import Notify from "../../shared/UIElements/Notify";
 
 const CreateEventBasicForm = (props) => {
-  const [showNotify, setShowNotify] = useState(false);
-  const [notifyDescription, setNotifyDescription] = useState();
   const [showEndDateInput, setShowEndDateInput] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -70,8 +67,6 @@ const CreateEventBasicForm = (props) => {
     event.preventDefault();
     if (!formState.isValid) {
       console.log("invalid inputs");
-      setNotifyDescription("Please fill the form correctly and submit again!");
-      setShowNotify(true);
     } else {
       let inputs = {
         id: uuid(),
@@ -105,18 +100,8 @@ const CreateEventBasicForm = (props) => {
     }
   };
 
-  const closeNotifyHandler = () => {
-    setShowNotify(false);
-    setNotifyDescription(null);
-  };
-
   return (
     <>
-      <Notify
-        open={showNotify}
-        onClose={closeNotifyHandler}
-        description={notifyDescription}
-      />
       <form onSubmit={formSubmitHandler}>
         <Input
           id="title"

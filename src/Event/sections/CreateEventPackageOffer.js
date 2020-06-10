@@ -67,7 +67,7 @@ const CreateEventPackageOffer = (props) => {
       <CreateEventHeader />
       <Container>
         <p className="text-align-left">
-          <span className="margin-2 color-dark-grey font-weight-light font-size-lg">
+        <span className="margin-2 color-dark-grey font-weight-normal font-size-md">
             Package details (Offering)<br></br>
           </span>
           <span className="margin-2 color-dark-grey font-weight-light">

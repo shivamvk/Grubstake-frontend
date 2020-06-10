@@ -10,6 +10,7 @@ import Home from "./Home/Home";
 import MainNavigation from "./shared/Navigation/MainNavigation";
 import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
+import ProfileEditPage from "./User/Profile/sections/ProfileEditPage";
 
 const Router = (props) => {
   let routes;
@@ -37,6 +38,10 @@ const Router = (props) => {
         <Route path="/user/profile" exact>
           <MainNavigation />
           <Profile />
+        </Route>
+        <Route path="/user/profile/edit" exact>
+          <MainNavigation />
+          <ProfileEditPage />
         </Route>
         <Route path="/create/event/:page" exact>
           <CreateEvent />
@@ -72,6 +77,10 @@ const Router = (props) => {
         <Route path="/user/profile" exact>
           <MainNavigation />
           <Profile />
+        </Route>
+        <Route path="/user/profile/edit" exact>
+          <MainNavigation />
+          <ProfileEditPage />
         </Route>
         <Route path="/create/event/:page" exact>
           <CreateEvent />

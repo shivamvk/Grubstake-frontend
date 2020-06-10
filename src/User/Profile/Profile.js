@@ -10,7 +10,7 @@ import "./Profile.css";
 const Profile = () => {
   return (
     <>
-      <Container style={{ minHeight: "100vh" }}>
+      <Container style={{ minHeight: "80vh" }}>
         <h2
           className={`color-grey font-weight-bolder ${
             window.innerWidth < 992 ? "text-align-center" : "text-align-left"
