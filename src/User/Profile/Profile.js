@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import ProfileOptions from "./sections/ProfileOptions";
 import ProfileGreeting from "./components/ProfileGreeting";
 import Button from "../../shared/FormElements/Button";
 import Footer from "../../shared/UIElements/Footer";
+import { AuthContext } from "../../shared/context/auth-context";
 
 import "./Profile.css";
 
 const Profile = () => {
+  const auth = useContext(AuthContext);
+  const logoutClickHandler = (event) => {
+    event.preventDefault();
+    auth.logout();
+  };
   return (
     <>
       <Container style={{ minHeight: "80vh" }}>
@@ -24,10 +30,11 @@ const Profile = () => {
         <br></br>
         <ProfileOptions />
         <br></br>
-        <Button variant="main" width="max">
+        <Button variant="main" width="max" onClick={logoutClickHandler}>
           LOG OUT
         </Button>
-        <br></br><br></br>
+        <br></br>
+        <br></br>
       </Container>
       <Footer />
     </>

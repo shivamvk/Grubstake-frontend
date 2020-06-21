@@ -62,30 +62,7 @@ const Router = (props) => {
         <Route path="/login" exact>
           <Login />
         </Route>
-        {/* remove these later */}
-        <Route path="/intermediate/after-auth" exact>
-          <AfterAuth />
-        </Route>
-        <Route path="/user/dashboard" exact>
-          <MainNavigation />
-          <Dashboard />
-        </Route>
-        <Route path="/user/dashboard/event/:eventId" exact>
-          <MainNavigation />
-          <Event />
-        </Route>
-        <Route path="/user/profile" exact>
-          <MainNavigation />
-          <Profile />
-        </Route>
-        <Route path="/user/profile/edit" exact>
-          <MainNavigation />
-          <ProfileEditPage />
-        </Route>
-        <Route path="/create/event/:page" exact>
-          <CreateEvent />
-        </Route>
-        <Redirect to="/login" />
+        <Redirect to="/" />
       </Switch>
     );
   }

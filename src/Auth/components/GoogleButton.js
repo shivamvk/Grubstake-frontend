@@ -19,7 +19,7 @@ const GoogleButton = () => {
 
   return (
     <GoogleLogin
-      clientId="787282077899-3f6bj3k9q0bdk6q4bkm3lv82smrsekgs.apps.googleusercontent.com"
+      clientId="622763529138-bq59pg9hs9it23b6fgagtbqji05u59ac.apps.googleusercontent.com"
       render={(renderProps) => (
         <Button onClick={renderProps.onClick} variant="light" size="sm">
           <img

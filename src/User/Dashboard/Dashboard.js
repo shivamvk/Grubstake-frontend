@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,40 +6,41 @@ import ProfileSection from "./sections/ProfileSection";
 import DashboardSection from "./sections/DashboardSection";
 import Footer from "../../shared/UIElements/Footer";
 
-const Dashboard = () => {
-  let [DUMMY_EVENTS, setDummyEvents] = useState([
-    {
-      id: "e1",
-      basicDetails: {
-        basics: {
-          orgName: "JIIT, Noida",
-          title: "Impressions",
-          type: "College fest",
-        },
-        date: {
-          startDate: new Date().toISOString(),
-          // endDate: new Date(
-          //   new Date().getTime() + 1000 * 60 * 60 * 24
-          // ).toISOString(),
-          endDate: null,
-        },
-        links: {
-          website: "blabla.com",
-          facebook: "fb.com/blabla",
-          instagram: "ig.com/blabla",
-        },
-        location: {
-          address: "JIIT, Sector 62",
-          city: "Noida",
-        },
-        time: {
-          startTime: "10:00",
-          endTime: "5:00",
-        },
+const DUMMY_EVENTS = [
+  {
+    id: "e1",
+    basicDetails: {
+      basics: {
+        orgName: "JIIT, Noida",
+        title: "Impressions",
+        type: "College fest",
+      },
+      date: {
+        startDate: new Date().toISOString(),
+        // endDate: new Date(
+        //   new Date().getTime() + 1000 * 60 * 60 * 24
+        // ).toISOString(),
+        endDate: null,
+      },
+      links: {
+        website: "blabla.com",
+        facebook: "fb.com/blabla",
+        instagram: "ig.com/blabla",
+      },
+      location: {
+        address: "JIIT, Sector 62",
+        city: "Noida",
+      },
+      time: {
+        startTime: "10:00",
+        endTime: "5:00",
       },
     },
-  ]);
-  const DUMMY_SPONSOR_APPLICATIONS = [];
+  },
+];
+const DUMMY_SPONSOR_APPLICATIONS = [];
+
+const Dashboard = () => {
   const addEventHandler = () => {
     console.log(DUMMY_EVENTS);
   };

@@ -1,0 +1,7 @@
+.toast {
+    border: none !important;
+    font-size: 1rem !important;
+    font-weight: bold;
+    color: grey;
+    width: max-content;
+}
