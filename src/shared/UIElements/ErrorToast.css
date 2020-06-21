@@ -1,7 +1,37 @@
 .toast {
-    border: none !important;
-    font-size: 1rem !important;
-    font-weight: bold;
-    color: grey;
-    width: max-content;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  color: grey;
+  width: max-content;
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  z-index: 1000;
+  min-height: 2rem;
+  min-width: 10rem;
+}
+
+.slide-in-right-enter {
+  transform: translateX(100%);
+  opacity: 0.5;
+  transition: all 200ms;
+}
+
+.slide-in-right-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.slide-in-right-exit {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.slide-in-right-exit-active {
+  transform: translateX(100%);
+  opacity: 0.5;
+  transition: all 200ms;
 }

@@ -65,7 +65,7 @@ const SignupForm = (props) => {
   if (isLoading) {
     return (
       <div className="center">
-        <LoadingSpinner />
+        <LoadingSpinner margin="md" />
       </div>
     );
   }

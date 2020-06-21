@@ -2,11 +2,23 @@
   display: inline-block;
   width: 64px;
   height: 64px;
-  margin: 5rem;
+  margin: 1rem;
+}
+
+.spinner__margin-sm {
+  margin: 2.5rem;
+}
+
+.spinner__margin-md {
+  margin: 4.5rem;
+}
+
+.spinner__margin-lg {
+  margin: 6.5rem;
 }
 
 .lds-dual-ring:after {
-  content: ' ';
+  content: " ";
   display: block;
   width: 46px;
   height: 46px;
