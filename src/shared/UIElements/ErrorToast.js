@@ -42,7 +42,7 @@ const ErrorToast = (props) => {
             xs={9}
           >
             <p style={{ margin: "5px" }} className="text-align-center">
-              {props.errorMessage || "Error"}
+              {props.errorMessage}
             </p>
           </Col>
         </Row>
