@@ -9,7 +9,7 @@
 
 .dashboard-section__incomplete-event{
   color: white;
-  background-color: #ff8c00;
+  background-image: linear-gradient(to right, #ff8fbc, #f383b0);
   margin-top: -1rem;
   margin-left: -1rem;
   margin-right: -1rem;

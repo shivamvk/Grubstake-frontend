@@ -16,7 +16,7 @@ const CreateEventBasicFormPage = (props) => {
           <span className="margin-2 color-dark-grey font-weight-light">*To ensure maximum sponsor reach please ensure to fill the form
           correctly.</span>
         </p>
-        <CreateEventBasicForm type={props.type}/>
+        <CreateEventBasicForm eventId={props.eventId} type={props.type}/>
       </Container>
     </>
   );

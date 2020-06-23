@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { AuthContext } from "../../../shared/context/auth-context";
+import { GrLocation as LocationIcon } from "react-icons/gr";
+import { MdDateRange as DateIcon } from "react-icons/md";
 
 const EventListItem = (props) => {
   const auth = useContext(AuthContext);
@@ -23,14 +25,25 @@ const EventListItem = (props) => {
           <Col xs={8} md={9}>
             <Card.Title className="text-align-left color-dark-grey">
               {props.title}
+              {props.orgName && (
+                <span
+                  style={{
+                    marginLeft: "1rem",
+                    color: "grey",
+                    fontStyle: "italic",
+                  }}
+                >
+                  by
+                </span>
+              )}
+              <span style={{ marginLeft: "1rem" }} className="color-dark-grey">
+                {props.orgName}
+              </span>
             </Card.Title>
             <Card.Text className="text-align-left color-grey">
-              {props.orgName && (
-                <span style={{ marginRight: "1rem" }}>{props.orgName}</span>
-              )}
               <span
                 style={{
-                  backgroundColor: "blue",
+                  backgroundColor: "#8bc2f2",
                   color: "white",
                   padding: "0.3rem",
                   borderRadius: "1.5rem",
@@ -41,9 +54,17 @@ const EventListItem = (props) => {
             </Card.Text>
           </Col>
         </Row>
-        <p className="text-align-left color-grey font-weight-light">
+        <br></br>
+        <span className="text-align-left color-dark-grey font-weight-light">
           {props.startDate && (
-            <Moment date={props.startDate} format="dddd, MMMM Do" />
+            <>
+              <DateIcon />
+              <Moment
+                className="margin-left-1"
+                date={props.startDate}
+                format="dddd, MMMM Do"
+              />
+            </>
           )}
           {props.endDate && (
             <>
@@ -51,9 +72,17 @@ const EventListItem = (props) => {
               <Moment date={props.endDate} format="dddd, MMMM Do" />
             </>
           )}
-          <br></br>
-          {props.location}
-        </p>
+        </span>
+        <span className="text-align-left">
+          {props.location && (
+            <>
+              <LocationIcon style={{ color: "red" }} />
+              <span className="color-dark-grey margin-left-1">
+                {props.location.address + ", " + props.location.city}
+              </span>
+            </>
+          )}
+        </span>
       </Card>
       <br></br>
     </Link>
