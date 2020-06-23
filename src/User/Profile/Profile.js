@@ -30,9 +30,15 @@ const Profile = () => {
         <br></br>
         <ProfileOptions />
         <br></br>
-        <Button variant="main" width="max" onClick={logoutClickHandler}>
-          LOG OUT
-        </Button>
+        <div className="text-align-right">
+          <Button
+            variant="main"
+            width={window.innerWidth < 767 ? "max" : "med"}
+            onClick={logoutClickHandler}
+          >
+            LOG OUT
+          </Button>
+        </div>  
         <br></br>
         <br></br>
       </Container>

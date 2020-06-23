@@ -14,7 +14,7 @@ const CreateEvent = (props) => {
     case "event-type":
       return <CreateEventTypePage />;
     case "basic-form":
-      return <CreateEventBasicFormPage type={getUrlParameter("type")} />;
+      return <CreateEventBasicFormPage eventId={getUrlParameter("event-id")} />;
     case "packages":
       return <CreateEventPackagesPage eventId={getUrlParameter("event-id")} />;
     case "create-package-request":

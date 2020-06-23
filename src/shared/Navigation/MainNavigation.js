@@ -5,7 +5,7 @@ import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../UIElements/Backdrop";
-
+import { FaUser as UserIcon } from "react-icons/fa";
 import "./MainNavigation.css";
 import Avatar from "../UIElements/Avatar";
 import { AuthContext } from "../context/auth-context";
@@ -26,6 +26,10 @@ const MainNavigation = (props) => {
       {isDrawerOpen ? <Backdrop onClick={closeDrawer} /> : null}
       <SideDrawer show={isDrawerOpen} onClick={closeDrawer}>
         <nav className="main-navigation__drawer-nav">
+          <Link to="/" className="main-navigation__side-nav-logo">
+            <img src="/g_logo.jpg" className="main-navigation__logo" alt="g" />
+            <span className="main-navigation__title-text">Grubstake</span>
+          </Link>
           <NavLinks />
         </nav>
       </SideDrawer>
@@ -51,8 +55,9 @@ const MainNavigation = (props) => {
           <NavLinks />
         </nav>
         <Link to={auth.isLoggedIn ? "/user/profile" : "/login"}>
-          <div className="pos-right-5-top-1">
-            <Avatar image="/profile_image_temp.png" alt="image" />
+          <div className="pos-right-1-top-1">
+            {/* <Avatar image="/profile_image_temp.png" alt="image" /> */}
+            <UserIcon fontSize="2rem" color="grey"/>
           </div>
         </Link>
       </MainHeader>

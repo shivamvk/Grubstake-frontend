@@ -24,16 +24,18 @@ const UserEventsList = (props) => {
       {props.events.map((event) => (
         <EventListItem
           key={event.id}
-          image="https://i.pinimg.com/originals/ca/4a/91/ca4a91129c614ffbd5e67e0509df36d4.png"
-          title={event.basicDetails.basics.title}
-          orgName={event.basicDetails.basics.orgName}
-          startDate={event.basicDetails.date.startDate}
-          endDate={event.basicDetails.date.endDate}
-          location={
-            event.basicDetails.location.address +
-            ", " +
-            event.basicDetails.location.city
+          id={event.id}
+          creator={event.creator}
+          image={
+            event.basicDetails.logo ||
+            "https://www.albertaaviationmuseum.com/wp-content/uploads/2014/11/logo-placeholder-generic.200x200.png"
           }
+          type={event.basicDetails.basics.type}
+          title={event.basicDetails.basics.title || `Event ${event.id}`}
+          orgName={event.basicDetails.basics.orgName || null}
+          startDate={event.basicDetails.date.startDate || null}
+          endDate={event.basicDetails.date.endDate || null}
+          location={event.basicDetails.location}
         />
       ))}
     </>

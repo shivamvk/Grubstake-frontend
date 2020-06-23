@@ -31,26 +31,19 @@
 
 .btn-outline {
   border-radius: 5px;
-  padding: 1rem;
   font-family: "Barlow", sans-serif;
-  padding: 0.5rem 2rem;
   color: grey;
-  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
-  border: solid 3px transparent;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(101deg, #ff8fbc, #8bc2f2);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 2px 1000px 1px #fff inset;
+  background-color: white;
+  border: none;
   transition: 1s;
 }
 
 .btn-outline:hover {
   box-shadow: none;
+  background-image: linear-gradient(to right, #ff8fbc, #8bc2f2);
   color: white;
+  border-radius: 5px;
+  font-family: "Barlow", sans-serif;
   transition: 1s;
 }
 
@@ -59,7 +52,6 @@
   border: none;
   color: #ff8fbc;
   font-family: "Barlow", sans-serif;
-  padding: 0.5rem 2rem;
   border-radius: 5px;
   opacity: 1;
   transition: 1s;

@@ -29,6 +29,14 @@
   height: 3rem;
 }
 
+.main-navigation__side-nav-logo {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  top: 5rem;
+  left:30%;
+}
+
 .main-navigation__title a {
   color: #ff8fbc;
   text-decoration: none;

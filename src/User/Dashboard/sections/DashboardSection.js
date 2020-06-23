@@ -42,18 +42,16 @@ const DashboardSection = (props) => {
   return (
     <>
       <br></br>
-      {props.events.length === 0 ? (
+      {props.createdEvents.length === 0 ? (
         <CreateEventCard
           title="Events"
           text="Want sponsors for your event?"
           btnText="CREATE EVENT"
-          addEvent={props.addEvent}
         />
       ) : (
         <UserEventsList
           title="Your events"
-          addEvent={props.addEvent}
-          events={props.events}
+          events={props.createdEvents}
         />
       )}
       <br></br>

@@ -7,12 +7,25 @@
   padding: 5rem;
 }
 
+.dashboard-section__incomplete-event{
+  color: white;
+  background-color: #ff8c00;
+  margin-top: -1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+
 .dashboard-section__list-card {
   width: 100%;
   box-shadow: 0 2px 4px #0000001f, 0 5px 5px #0000003d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   cursor: pointer;
+  border-radius: 0.5rem !important;
 }
 
 .dashboard-section__list-card:hover {

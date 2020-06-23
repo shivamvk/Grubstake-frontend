@@ -16,13 +16,13 @@
 
 .nav-links a {
   border: 1px solid transparent;
-  color: #8bc2f2;
+  color: #ff8fbc;
   text-decoration: none;
   padding: 0.5rem;
 }
 
 .nav-links a:hover {
-  color: #ff8fbc;
+  color: #8bc2f2;
   text-decoration: none;
 }
 
@@ -54,12 +54,12 @@
   }
 
   .nav-links a {
-    color: #8bc2f2;
+    color: #ff8fbc;
     text-decoration: none;
   }
 
   .nav-links a:hover {
-    color: #ff8fbc;
+    color: #8bc2f2;
   }
 
   .nav-links button {

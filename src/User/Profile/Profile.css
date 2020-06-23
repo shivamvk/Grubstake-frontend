@@ -4,6 +4,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: white;
   border: none !important;
+  border-radius: 0.5rem !important;
   padding: 2rem;
   min-height: 11rem;
 }
