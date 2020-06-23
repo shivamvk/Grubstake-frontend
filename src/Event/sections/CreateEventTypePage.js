@@ -36,11 +36,13 @@ const CreateEventTypePage = () => {
         JSON.stringify({ createdBy: auth.userId, type: type }),
         {
           "Content-Type": "application/json",
-          "Authorization" : "Bearer " + auth.token
+          Authorization: "Bearer " + auth.token,
         }
       );
-      if(response){
-        history.replace("/create/event/basic-form?event-id=" + response.data.id);
+      if (response) {
+        history.replace(
+          "/create/event/basic-form?event-id=" + response.data.id
+        );
       }
     } catch (err) {
       error.setErrorMessage("Failed!");
@@ -49,45 +51,48 @@ const CreateEventTypePage = () => {
   return (
     <>
       <CreateEventHeader />
-      {isLoading ? (
-        <LoadingSpinner asOverlay/>
-      ) : (
-        <Container>
-          <div
-            style={{
-              position: "absolute",
-              top: "4rem",
-              right: "2rem",
-              zIndex: "100",
-            }}
-          >
-            <ErrorToast onClose={clearError} errorMessage={error.message} />
-          </div>
-          <h1 className="margin-2 color-dark-grey font-weight-lighter font-size-xl">
-            What kind of event do you want to create?
-          </h1>
-          <br></br>
-          {EVENT_TYPES.map((type) => {
-            return (
-              <Badge
-                key={type}
-                onClick={()=>{
-                  createEventAndProceed(type);
-                }}
-                className="create-event__pill"
-                pill
-                variant="light"
-              >
-                {window.innerWidth < 768 ? (
-                  <h6 className="color-grey font-weight-light">{type}</h6>
-                ) : (
-                  <h5 className="color-grey font-weight-light">{type}</h5>
-                )}
-              </Badge>
-            );
-          })}
-        </Container>
-      )}
+      <Container>
+        <div
+          style={{
+            position: "absolute",
+            top: "4rem",
+            right: "2rem",
+            zIndex: "100",
+          }}
+        >
+          <ErrorToast onClose={clearError} errorMessage={error.message} />
+        </div>
+        {isLoading ? (
+          <LoadingSpinner margin="lg" />
+        ) : (
+          <>
+            <h1 className="margin-2 color-dark-grey font-weight-lighter font-size-xl">
+              What kind of event do you want to create?
+            </h1>
+            <br></br>
+            {EVENT_TYPES.map((type) => {
+              return (
+                <Badge
+                  key={type}
+                  onClick={() => {
+                    createEventAndProceed(type);
+                  }}
+                  className="create-event__pill"
+                  pill
+                  variant="light"
+                >
+                  {window.innerWidth < 768 ? (
+                    <h6 className="color-grey font-weight-light">{type}</h6>
+                  ) : (
+                    <h5 className="color-grey font-weight-light">{type}</h5>
+                  )}
+                </Badge>
+              );
+            })}
+          </>
+        )}
+      </Container>
+      )
     </>
   );
 };

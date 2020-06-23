@@ -13,7 +13,7 @@ const EventListItem = (props) => {
       <Card className="dashboard-section__list-card">
         {auth.userId === props.creator && (
           <div className="dashboard-section__incomplete-event">
-            Provide all details for maximum sponsor reach! Click to edit.
+            Provide all details for maximum sponsor reach!
           </div>
         )}
         <Row>
