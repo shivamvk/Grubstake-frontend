@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Router from "./Router";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
 function App() {
-  const { token, userId, userName, userEmail, isLoggedIn, login, logout } = useAuth();
+  const {
+    token,
+    userId,
+    userName,
+    userEmail,
+    isLoggedIn,
+    login,
+    logout,
+  } = useAuth();
 
   return (
     <AuthContext.Provider

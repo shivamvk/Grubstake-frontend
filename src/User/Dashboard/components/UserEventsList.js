@@ -28,7 +28,7 @@ const UserEventsList = (props) => {
           isActive={event.isActive}
           creator={event.creator}
           image={
-            event.basicDetails.logo ||
+            event.basicDetails.basics.logo ||
             "https://www.albertaaviationmuseum.com/wp-content/uploads/2014/11/logo-placeholder-generic.200x200.png"
           }
           type={event.basicDetails.basics.type}

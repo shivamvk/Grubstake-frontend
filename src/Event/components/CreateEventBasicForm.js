@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-
 import Input from "../../shared/FormElements/Input";
+import ImageUpload from "../../shared/FormElements/ImageUpload";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validator";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -14,6 +14,8 @@ import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorToast from "../../shared/UIElements/ErrorToast";
+import firebase from "firebase";
+import { v4 as uuid } from "uuid";
 
 const CreateEventBasicForm = (props) => {
   const [showEndDateInput, setShowEndDateInput] = useState(false);
@@ -35,6 +37,10 @@ const CreateEventBasicForm = (props) => {
 
   const [formState, inputHandler] = useForm(
     {
+      image: {
+        value: null,
+        isValid: false,
+      },
       title: {
         value: "",
         isValid: false,
@@ -71,12 +77,23 @@ const CreateEventBasicForm = (props) => {
     event.preventDefault();
     if (!formState.isValid) {
       console.log("invalid inputs");
+      error.setErrorMessage("Please provide all required details");
     } else {
+      firebase.initializeApp({
+        storageBucket: "gs://shivamvk-grubstake.appspot.com",
+      });
+      const logoRef = firebase
+        .storage()
+        .ref()
+        .child(`events/${props.eventId}/logo/${uuid()}`);
+      const snapshot = await logoRef.put(formState.inputs.image.value);
+      const logoUrl = await snapshot.ref.getDownloadURL();
+      console.log(logoUrl);
       let inputs = {
         eventId: props.eventId,
         basicDetails: {
           basics: {
-            logo: "bla bla",
+            logo: logoUrl,
             type: props.type,
             title: formState.inputs.title.value,
             orgName: formState.inputs.orgName.value,
@@ -119,10 +136,12 @@ const CreateEventBasicForm = (props) => {
             "Content-Type": "application/json",
             Authorization: "Bearer " + auth.token,
           }
+        );
+        if (response) {
+          history.replace(
+            "/create/event/packages?event-id=" + response.data.id
           );
-          if(response){
-            history.replace("/create/event/packages?event-id=" + response.data.id);
-          }
+        }
       } catch (err) {
         error.setErrorMessage(err.message);
       }
@@ -142,9 +161,16 @@ const CreateEventBasicForm = (props) => {
         <ErrorToast onClose={clearError} errorMessage={error.message} />
       </div>
       {isLoading ? (
-        <LoadingSpinner margin="lg"/>
+        <LoadingSpinner margin="lg" />
       ) : (
         <form onSubmit={formSubmitHandler}>
+          <ImageUpload
+            id="image"
+            onInput={inputHandler}
+            placeholderText="Pick a logo"
+            errorText="Plesae provide a logo"
+          />
+          <br></br>
           <Input
             id="title"
             element="input"
