@@ -33,7 +33,7 @@ const Profile = () => {
         <div className="text-align-right">
           <Button
             variant="main"
-            width={window.innerWidth < 767 ? "max" : "med"}
+            width={window.innerWidth < 767 ? "max" : "max"}
             onClick={logoutClickHandler}
           >
             LOG OUT

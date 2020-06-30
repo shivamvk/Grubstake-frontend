@@ -3,10 +3,15 @@ import Input from "../../../shared/FormElements/Input";
 import { VALIDATOR_REQUIRE } from "../../../shared/util/validator";
 import Button from "../../../shared/FormElements/Button";
 import { useForm } from "../../../shared/hooks/form-hook";
+import ImageUpload from "../../../shared/FormElements/ImageUpload";
 
 const ProfileEditForm = (props) => {
   const [formState, inputHandler] = useForm(
     {
+      image: {
+        value: null,
+        isValid: false
+      },
       name: {
         value: "",
         isValid: false,
@@ -34,6 +39,13 @@ const ProfileEditForm = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
+      <ImageUpload
+        id="image"
+        onInput={inputHandler}
+        placeholderText="Display pic"
+        errorText="Plesae provide your display pic"
+      />
+      <br></br>
       <Input
         id="name"
         element="input"

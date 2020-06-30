@@ -52,7 +52,7 @@ const Dashboard = () => {
     const fettchCreatedEvents = async () => {
       try {
         const response = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/event/createdEvents`,
+          `${process.env.REACT_APP_BACKEND_URL}/user/createdEvents`,
           "GET",
           null,
           {

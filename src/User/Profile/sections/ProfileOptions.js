@@ -13,7 +13,7 @@ const ProfileOptions = (props) => {
       <Col>
         <ProfileOption
           link="/user/dashboard/"
-          icon={<DashboardIcon style={{ fontSize: "2rem", color: "grey" }} />}
+          icon={<DashboardIcon style={{ fontSize: "2rem", color: "deepskyblue" }} />}
           title="Dashboard"
           description="See your events and sponsor application status"
         />
@@ -22,7 +22,7 @@ const ProfileOptions = (props) => {
       <Col>
         <ProfileOption
           link="/"
-          icon={<SecurityIcon style={{ fontSize: "2rem", color: "grey" }} />}
+          icon={<SecurityIcon style={{ fontSize: "2rem", color: "deepskyblue" }} />}
           title="Security"
           description="See your login details or change password"
         />

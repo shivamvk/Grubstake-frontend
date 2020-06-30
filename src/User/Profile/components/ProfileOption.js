@@ -11,7 +11,7 @@ const ProfileOption = (props) => {
     <Card className="profile__options-card" onClick={cardClickHandler}>
       <Card.Text>
         {props.icon}
-        <h5 className="color-dark-grey">{props.title}</h5>
+        <h5 style={{ color: "lightskyblue", fontWeight: "bold" }}>{props.title}</h5>
         <h6 className="text-muted">{props.description}</h6>
       </Card.Text>
     </Card>

@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import { FaUser as UserIcon } from "react-icons/fa";
 import Button from "../../../shared/FormElements/Button";
 import { Link } from "react-router-dom";
+import { FiEdit2 as EditIcon } from "react-icons/fi";
 
 const ProfileGreeting = (props) => {
   return (
@@ -16,15 +17,15 @@ const ProfileGreeting = (props) => {
           <p className="text-align-left">
             <span className="profile__greeting-user-hello">Hello,</span>
             <br></br>
-            <span className="profile__greeting-user-name">Satyam Jaiswal</span>
+            <span className="profile__greeting-user-name">
+              {JSON.parse(localStorage.getItem("userData")).userName}
+            </span>
           </p>
         </Col>
         <Col xs={4}>
           <div className="profile__greeting-right-icon ">
             <Link to="/user/profile/edit">
-              <Button variant="outline" padding="p-min">
-                Edit profile
-              </Button>
+              <EditIcon style={{ color: "lightskyblue", fontSize: "2rem" }} />
             </Link>
           </div>
         </Col>
