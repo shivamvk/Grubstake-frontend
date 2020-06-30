@@ -112,7 +112,7 @@ const CreateEventBasicForm = (props) => {
       console.log(inputs);
       try {
         const response = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/event/upsert/basicDetails`,
+          `${process.env.REACT_APP_BACKEND_URL}/event/basicDetails/upsert`,
           "POST",
           JSON.stringify(inputs),
           {

@@ -97,7 +97,7 @@ const Dashboard = () => {
               <br></br>
               {window.innerWidth > 992 && (
                 <ProfileSection
-                  events={DUMMY_EVENTS}
+                  events={createdEvents}
                   sponsorApplications={DUMMY_SPONSOR_APPLICATIONS}
                 />
               )}

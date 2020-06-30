@@ -19,7 +19,9 @@ const ProfileSection = (props) => {
       <Link to="/user/profile" className="remove-link-decoration">
         <>
           <Card className="profile-section__card">
-            <ProfileSectionGreeting name="Satyam Jaiswal" />
+            <ProfileSectionGreeting
+              name={JSON.parse(localStorage.getItem("userData")).userName}
+            />
             <RightIcon
               color="grey"
               className="profile-section__mobile_toggle pos-top-2"
@@ -59,7 +61,10 @@ const ProfileSection = (props) => {
                 ) : (
                   props.events.map((event) => {
                     return (
-                      <Link className="remove-link-decoration color-grey" to={`/user/dashboard/event/${event.id}`}>
+                      <Link
+                        className="remove-link-decoration color-grey"
+                        to={`/user/dashboard/event/${event.id}`}
+                      >
                         <ListGroup.Item className="text-align-left border-bottom">
                           {event.basicDetails.basics.title}
                         </ListGroup.Item>

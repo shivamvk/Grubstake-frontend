@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -7,11 +7,37 @@ import Moment from "react-moment";
 import { AuthContext } from "../../../shared/context/auth-context";
 import { GrLocation as LocationIcon } from "react-icons/gr";
 import { MdDateRange as DateIcon } from "react-icons/md";
+import { useHttpClient } from "../../../shared/hooks/http-hook";
 
 const EventListItem = (props) => {
   const auth = useContext(AuthContext);
+  const [isLoading, error, sendRequest, clearError] = useHttpClient();
+  const [showMarkAsInactiveText, setShowMarkAsInActiveText] = useState(true);
+  const markAsInactiveClickHandler = async () => {
+    try {
+      const response = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/event/setActivity`,
+        "POST",
+        JSON.stringify({
+          isActive: false,
+          eventId: props.id,
+        }),
+        {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      if (response) {
+        console.log(response.data);
+        setShowMarkAsInActiveText(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
-    <Link to={`/user/event/${props.id}`} className="remove-link-decoration">
+    // <Link to={`/user/event/${props.id}`} className="remove-link-decoration">
+    <>
       <Card className="dashboard-section__list-card">
         {auth.userId === props.creator && (
           <div className="dashboard-section__incomplete-event">
@@ -83,9 +109,29 @@ const EventListItem = (props) => {
             </>
           )}
         </span>
+        {auth.userId === props.creator &&
+          props.isActive &&
+          showMarkAsInactiveText &&
+          props.startDate &&
+          new Date(props.startDate).getTime() < new Date().getTime() && (
+            <span className="text-align-left margin-top-2 color-dark-grey">
+              Seems like your event has already ended
+              <span
+                onClick={markAsInactiveClickHandler}
+                style={{
+                  color: "#ff8fbc",
+                  marginLeft: "1rem",
+                  cursor: "pointer",
+                }}
+              >
+                Mark as inactive
+              </span>
+            </span>
+          )}
       </Card>
       <br></br>
-    </Link>
+    </>
+    // </Link>
   );
 };
 

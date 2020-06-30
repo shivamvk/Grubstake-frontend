@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CreateEventHeader from "../components/CreateEventHeader";
 import PackagesList from "../components/PackagesList";
 import Container from "react-bootstrap/Container";
@@ -7,47 +7,21 @@ import Notify from "../../shared/UIElements/Notify";
 import { useHistory } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
+import ErrorToast from "../../shared/UIElements/ErrorToast";
+import { AuthContext } from "../../shared/context/auth-context";
 
-const DUMMY_PACKAGES = [
-  {
-    id: "p1",
-    eventId: "e1",
-    sponsorRequestDetails: {
-      andOr: "AND",
-      inCash: {
-        sponsorsAmountRange: {
-          max: 80000,
-          min: 50000,
-        },
-      },
-      inKind: {
-        goodiesRange: {
-          max: 1000,
-          min: 500,
-        },
-        couponsRange: {
-          max: 1000,
-          min: 500,
-        },
-        vouchersRange: {
-          max: 1000,
-          min: 500,
-        },
-      },
-    },
-    sponsorOfferDetails: {
-      offers: ["Guest at event", "Social media"],
-      other: "",
-      title: "Title sponsor",
-    },
-  },
-];
+const DUMMY_PACKAGES = [];
 
 const CreateEventPackagesPage = (props) => {
   const history = useHistory();
   const [showNotify, setShowNotify] = useState(false);
+  const [packages, setPackages] = useState([]);
+  const [isLoading, error, sendRequest, clearError] = useHttpClient();
+  const auth = useContext(AuthContext);
   const continueClickHandler = () => {
-    if (DUMMY_PACKAGES.length === 0) {
+    if (packages.length === 0) {
       setShowNotify(true);
     } else {
       history.replace(
@@ -71,8 +45,33 @@ const CreateEventPackagesPage = (props) => {
     );
   };
 
+  useEffect(() => {
+    const getPackagesByEventId = async () => {
+      const response = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/event/package/byEventId?eventId=${props.eventId}`,
+        "GET",
+        null,
+        {
+          "Authorization": "Bearer " + auth.token
+        }
+      );
+      setPackages(response.data);
+    };
+    getPackagesByEventId();
+  }, [sendRequest, auth.token, props.eventId]);
+
   return (
     <>
+      <div
+        style={{
+          position: "absolute",
+          top: "4rem",
+          right: "2rem",
+          zIndex: "100",
+        }}
+      >
+        <ErrorToast onClose={clearError} errorMessage={error.message} />
+      </div>
       <Notify
         open={showNotify}
         title="Pacakges!"
@@ -84,9 +83,15 @@ const CreateEventPackagesPage = (props) => {
       />
       <CreateEventHeader />
       <Container>
-        <PackagesList packages={DUMMY_PACKAGES} eventId={props.eventId} />
-        <br></br>
-        <br></br>
+        {isLoading ? (
+          <LoadingSpinner margin="lg" />
+        ) : (
+          <>
+            <PackagesList packages={packages} eventId={props.eventId} />
+            <br></br>
+            <br></br>
+          </>
+        )}
         <Row>
           <Col>
             <Button variant="main" width="max" onClick={createClickHandler}>
@@ -103,6 +108,8 @@ const CreateEventPackagesPage = (props) => {
             </Button>
           </Col>
         </Row>
+        <br></br>
+        <br></br>
       </Container>
     </>
   );

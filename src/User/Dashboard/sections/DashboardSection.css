@@ -25,14 +25,14 @@
   box-shadow: 0 2px 4px #0000001f, 0 5px 5px #0000003d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 1rem 1rem 1rem 1rem;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 0.5rem !important;
 }
 
-.dashboard-section__list-card:hover {
+/* .dashboard-section__list-card:hover {
   box-shadow: 0 12px 24px #0000001f, 0 10px 10px #0000003d;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+} */
 
 .h5 {
   font-weight: bolder !important;

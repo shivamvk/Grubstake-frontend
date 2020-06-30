@@ -25,6 +25,7 @@ const UserEventsList = (props) => {
         <EventListItem
           key={event.id}
           id={event.id}
+          isActive={event.isActive}
           creator={event.creator}
           image={
             event.basicDetails.logo ||

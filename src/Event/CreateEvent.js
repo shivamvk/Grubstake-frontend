@@ -23,7 +23,7 @@ const CreateEvent = (props) => {
       return <CreateEventPackageOffer eventId={getUrlParameter("event-id")} />;
     case "audience-details":
       return <CreateEventAudiencePage eventId={getUrlParameter("event-id")} />;
-    case "7":
+    case "pitch-details":
       return <CreateEventPitchPage eventId={getUrlParameter("event-id")} />;
     default:
       return <h2>Fine till now!</h2>;

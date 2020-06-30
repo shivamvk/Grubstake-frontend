@@ -4,7 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { FaRupeeSign as RupeeSign } from "react-icons/fa";
-import Button from "../../shared/FormElements/Button";
+import { BsCheckAll as CheckIcon } from "react-icons/bs";
+import { FiEdit2 as EditIcon } from "react-icons/fi";
+import { AiOutlineDelete as DeleteIcon } from "react-icons/ai";
 
 const PackagesList = (props) => {
   return (
@@ -24,43 +26,79 @@ const PackagesList = (props) => {
                   }}
                 >
                   <Card.Text>
-                    <span className="color-dark-grey font-size-md font-weight-light">
+                    <span
+                      style={{ color: "deeppink" }}
+                      className="font-size-md"
+                    >
                       {p.sponsorOfferDetails.title}
-                      <br></br><br></br>
+                      <br></br>
+                      <br></br>
                     </span>
+                    {p.sponsorRequestDetails.inCash && (
+                      <p className="text-align-left">
+                        <span
+                          className="color-dark-grey"
+                          style={{ fontSize: "1rem" }}
+                        >
+                          Starting from{" "}
+                        </span>
+                        <span
+                          className="font-weight-bold"
+                          style={{ color: "lightskyblue", fontSize: "2rem" }}
+                        >
+                          <RupeeSign style={{ fontWeight: "lighter" }} />
+                          {p.sponsorRequestDetails.inCash.min}
+                        </span>
+                      </p>
+                    )}
+                    {p.sponsorRequestDetails.inKind && (
+                      <p className="text-align-left">
+                        <span
+                          className="color-dark-grey"
+                          style={{ fontSize: "1rem" }}
+                        >
+                          In kind{" "}
+                        </span>
+                        <span
+                          className="font-weight-bold"
+                          style={{ color: "lightskyblue", fontSize: "2rem" }}
+                        >
+                          <CheckIcon style={{ fontWeight: "lighter" }} />
+                        </span>
+                      </p>
+                    )}
                     <p className="text-align-left">
-                      <span className="color-dark-grey font-weight-light">
-                        <RupeeSign />
-                        {p.sponsorRequestDetails.inCash.sponsorsAmountRange.min}{" - "}
-                        {p.sponsorRequestDetails.inCash.sponsorsAmountRange.max}<br></br>
+                      <span
+                        className="color-dark-grey"
+                        style={{ fontSize: "1rem" }}
+                      >
+                        Offering{" "}
                       </span>
+                      {p.sponsorOfferDetails.offers.map((offer) => {
+                        return (
+                          <div
+                            style={{
+                              backgroundColor: "lightskyblue",
+                              width: "fit-content",
+                              borderRadius: "1rem",
+                              paddingTop: "0.3rem",
+                              paddingBottom: "0.3rem",
+                              paddingRight: "0.5rem",
+                              paddingLeft: "0.5rem",
+                              margin: "0.3rem",
+                              fontSize: "0.8rem"
+                            }}
+                          >
+                            {offer}
+                          </div>
+                        );
+                      })}
                     </p>
-                    <p className="text-align-left">
-                      <span className="color-grey">Goodies:</span>{" "}
-                      <span className="color-dark-grey font-weight-bold">
-                        {p.sponsorRequestDetails.inKind.goodiesRange.min}{" - "}
-                        {p.sponsorRequestDetails.inKind.goodiesRange.max}<br></br>
-                      </span>
-                    </p>
-                    <p className="text-align-left">
-                    <span className="color-grey">Vouchers:</span>{" "}
-                      <span className="color-dark-grey font-weight-bold">
-                        {p.sponsorRequestDetails.inKind.vouchersRange.min}{" - "}
-                        {p.sponsorRequestDetails.inKind.vouchersRange.max}<br></br>
-                      </span>
-                    </p>
-                    <p className="text-align-left">
-                    <span className="color-grey">Coupons:</span>{" "}
-                      <span className="color-dark-grey font-weight-bold">
-                        {p.sponsorRequestDetails.inKind.couponsRange.min}{" - "}
-                        {p.sponsorRequestDetails.inKind.couponsRange.max}<br></br>
-                      </span>
-                    </p>
-                    {p.sponsorOfferDetails.offers.map(offer=>{
-                      return <div>{offer}</div>
-                    })}
                     <br></br>
-                    <Button variant="outline" width="max">Edit</Button>
+                    <p className="text-align-right">
+                      <EditIcon style={{ color: "green", cursor: "pointer" }} />{" "}
+                      <DeleteIcon style={{ color: "red", cursor: "pointer" }} />
+                    </p>
                   </Card.Text>
                 </Card>
               </Col>

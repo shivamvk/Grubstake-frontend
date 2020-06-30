@@ -4,7 +4,7 @@ import "react-input-range/lib/css/index.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FaRupeeSign as RupeeIcon } from "react-icons/fa";
-import ToggleSwitch from "../../shared/FormElements/ToggleSwitch";
+import { RadioGroup, RadioButton } from "react-radio-buttons";
 import Button from "../../shared/FormElements/Button";
 import { useHistory } from "react-router-dom";
 import Input from "../../shared/FormElements/Input";
@@ -27,15 +27,13 @@ const CreateEventSponsorRequestForm = (props) => {
     min: 0,
     max: 1000,
   });
-  const [andor, setAndOr] = useState("AND");
+  const [radioValue, setRadioValue] = useState("BOTH");
   const [otherValue, setOthersValue] = useState(null);
-  const andOrCheckHandler = (checked) => {
-    if (checked) {
-      setAndOr("OR");
-    } else {
-      setAndOr("AND");
-    }
+  
+  const radioChangeHandler = value => {
+    setRadioValue(value);
   };
+
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -43,9 +41,10 @@ const CreateEventSponsorRequestForm = (props) => {
       id: props.eventId,
       sponsorRequestDetails: {
         inCash: {
-          sponsorsAmountRange: sponsorsAmountRange,
+          min: sponsorsAmountRange.min,
+          max: sponsorsAmountRange.max
         },
-        andOr: andor,
+        selection: radioValue,
         inKind: {
           goodiesRange: goodiesRange,
           couponsRange: couponsRange,
@@ -70,6 +69,24 @@ const CreateEventSponsorRequestForm = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
+      <Row className="justify-content-center">
+        <RadioGroup onChange={radioChangeHandler} value='' horizontal>
+          <RadioButton value="BOTH">
+            Both
+          </RadioButton>
+          <RadioButton value="ANY">
+            Any
+          </RadioButton>
+          <RadioButton value="ONLY_CASH">
+            Only cash
+          </RadioButton>
+          <RadioButton value="ONLY_GOODIES">
+            Only goodies
+          </RadioButton>
+        </RadioGroup>
+      </Row>
+      <br></br>
+      <br></br>
       <h5 className="color-dark-grey text-align-left">In cash:</h5>
       <br></br>
       <Col className="d-flex justify-content-left">
@@ -93,16 +110,6 @@ const CreateEventSponsorRequestForm = (props) => {
           onChange={(value) => setSponsorsAmountRange(value)}
         />
       </Col>
-      <br></br>
-      <br></br>
-      <Row className="justify-content-center">
-        <ToggleSwitch
-          onChange={(checked) => andOrCheckHandler(checked)}
-          uncheckedText="And"
-          checkedText="Or"
-          checked={false}
-        />
-      </Row>
       <br></br>
       <br></br>
       <h5 className="color-dark-grey text-align-left">In kind:</h5>
